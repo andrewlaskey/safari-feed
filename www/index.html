@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Safari Feed</title>
+    <meta name="author" content="Andrew Laskey">
+    <meta name="description" content="Real-time updates on what is happening in the San Diego Zoo">
+    <link rel="shortcut icon" href="favicon.ico" type="image/vnd.microsoft.icon">
+    <link rel="stylesheet" href="stylesheet.css" type="text/css">
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-XXXXXXXX-Y']);
+      _gaq.push(['_trackPageview']);
+      (function()
+      {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  </head>
+  <body>
+    <header class="site-header">
+      <h1>Safari Feed</h1>
+      <button id="settings" class="header-button settings"><i class="icon-cog"></i></button>
+      <button id="update" name="update" type="button" class="header-button update"><i class="icon-bubble"></i></button>
+    </header>
+
+    <section class="main-map">
+      <div id="map"></div>
+    </section>
+
+    <div id="comment" class="add-comment">
+      <input id="jingle" type="text" value="" placeholder="Whats happening?" />
+      <input id="email" type="text" value="" placeholder="Email" /><!-- spam prevention -->
+      <ul class="sentiment">
+        <li><button id="pos" name="pos" type="button"><i class="icon-smiley"></i></button></li>
+        <li><button id="neg" name="neg" type="button"><i class="icon-sad"></i></button></li>
+      </ul>
+    </div>
+
+    <div id="update-panel" class="update-panel">
+      <div class="update-sentiment"><i class="icon-smiley"></i></div>
+      <div class="update-comment"></div>
+    </div>
+
+  </body>
+</html>
