@@ -38,4 +38,6 @@ Thumbs.db
 
 # SASS #
 #####################
-*.scss
+*.scssc
+.sass-cache/
+bourbon/
