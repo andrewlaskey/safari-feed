@@ -20,28 +20,43 @@
     </script>
   </head>
   <body>
-    <header class="site-header">
+    <header class="SiteHeader">
       <h1>Safari Feed</h1>
-      <button id="settings" class="header-button settings"><i class="icon-cog"></i></button>
-      <button id="update" name="update" type="button" class="header-button update"><i class="icon-bubble"></i></button>
+      <button id="settings" type="button" class="SiteHeader-button settings"><i class="icon-cog"></i></button>
+      <button id="update" type="button" class="SiteHeader-button update"><i class="icon-bubble"></i></button>
     </header>
 
-    <section class="main-map">
+    <section class="MainMap">
       <div id="map"></div>
     </section>
 
-    <div id="comment" class="add-comment">
+    <div id="comment" class="AddComment">
       <input id="jingle" type="text" value="" placeholder="Whats happening?" />
       <input id="email" type="text" value="" placeholder="Email" /><!-- spam prevention -->
-      <ul class="sentiment">
-        <li><button id="pos" name="pos" type="button"><i class="icon-smiley"></i></button></li>
-        <li><button id="neg" name="neg" type="button"><i class="icon-sad"></i></button></li>
-      </ul>
+      <div class="AddComment-buttons">
+        <button id="pos" name="pos" type="button"><i class="icon-smiley"></i></button>
+        <button id="neg" name="neg" type="button"><i class="icon-sad"></i></button>
+      </div>
     </div>
 
-    <div id="update-panel" class="update-panel">
-      <div class="update-sentiment"><i class="icon-smiley"></i></div>
-      <div class="update-comment"></div>
+    <div id="last-update" class="LastUpdate">
+      <div class="LastUpdate-sentiment"><i class="icon-smiley"></i></div>
+      <div class="LastUpdate-comment"></div>
+    </div>
+
+    <div id="settings-panel" class="Settings">
+      <h2>What's Safari Feed</h2>
+      <p>Safari feed gives you real-time updates of what is happening in the San Diego Zoo. Submit your own updates to let others know where the action is.</p>
+      <h2>Adding Updates</h2>
+      <p> Click the <i class="icon-bubble"></i> comment button in the top right. Write a brief note and submit the update with either the postive, <i class="icon-smiley"></i>, or negative, <i class="icon-sad"></i> button depending on your message.</p>
+      <ul class="Examples">
+        <li><i class="icon-smiley"></i>The lions are feeding!</li>
+        <li><i class="icon-sad"></i>The monkey exhibit is closed.</li>
+      </ul>
+      <h2>History</h2>
+      <p>Click the layers button in the top right corner of the map, and select "History", to see historic activity heat map for your current time</p>
+      <h2>Support</h2>
+      <p>Contribute to this project on <a href="https://github.com/andrewlaskey/safari-feed" title="Safari Feed Github Repository" target="_blank">Github</a> or <a href="#">Donate</a></p>
     </div>
 
   </body>
