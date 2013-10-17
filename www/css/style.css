@@ -1,0 +1,143 @@
+/* Housekeeping */
+* {
+  margin: 0;
+  padding: 0; }
+
+/* Define your base font-size here; most elements will inherit this. */
+html {
+  font-size: 1em;
+  /* Assuming 16px... */
+  line-height: 1.5;
+  /* 24px (This is now our magic number; all subsequent margin-bottoms and line-heights want to be a multiple of this number in order to maintain vertical rhythm.) */ }
+
+/* Common margin-bottom for vertical rhythm. */
+h1, h2, h3, h4, h5, h6,
+ul, ol, dl,
+fieldset,
+p,
+table,
+pre,
+hr {
+  margin-bottom: 24px;
+  margin-bottom: 1.5rem; }
+
+/* These handle massive type, for less frequently occuring bits of text (e.g. in mastheads and banners). */
+.giga {
+  font-size: 80px;
+  font-size: 5rem;
+  /* 80px */
+  line-height: 1.2;
+  /* 96px */ }
+
+.mega {
+  font-size: 64px;
+  font-size: 4rem;
+  /* 64px */
+  line-height: 1.125;
+  /* 72px */ }
+
+.kilo {
+  font-size: 48px;
+  font-size: 3rem;
+  /* 48px */
+  line-height: 1;
+  /* 48px */ }
+
+/* Define headings and their associated classes here. */
+h1, .alpha {
+  font-size: 32px;
+  font-size: 2rem;
+  /* 32px */
+  line-height: 1.5;
+  /* 48px */ }
+
+h2, .beta {
+  font-size: 1.5em;
+  /* 24px */
+  line-height: 1;
+  /* 24px */ }
+
+h3, .gamma {
+  font-size: 20px;
+  font-size: 1.25rem;
+  /* 20px */
+  line-height: 1.2;
+  /* 24px */ }
+
+h4, .delta {
+  font-size: 18px;
+  font-size: 1.125rem;
+  /* 18px */
+  line-height: 1.333;
+  /* 24px */ }
+
+h5, .epsilon {
+  font-size: 16px;
+  font-size: 1rem;
+  /* 16px */
+  line-height: 1.5;
+  /* 24px */ }
+
+h6, .zeta {
+  font-size: 16px;
+  font-size: 1rem;
+  /* 16px */
+  line-height: 1.5;
+  /* 24px */ }
+
+/* Smaller-than-body-copy sizes here. */
+small, .milli {
+  font-size: 12px;
+  font-size: 0.75rem;
+  /* 12px */
+  line-height: 2;
+  /* 24px */ }
+
+@font-face {
+  font-family: 'safari-feed';
+  src: url("fonts/safari-feed.eot");
+  src: url("fonts/safari-feed.eot?#iefix") format("embedded-opentype"), url("fonts/safari-feed.woff") format("woff"), url("fonts/safari-feed.ttf") format("truetype"), url("fonts/safari-feed.svg#safari-feed") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+/* Use the following CSS code if you want to use data attributes for inserting your icons */
+[data-icon]:before {
+  font-family: 'safari-feed';
+  content: attr(data-icon);
+  speak: none;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased; }
+
+/* Use the following CSS code if you want to have a class per icon */
+/*
+Instead of a list of all class selectors,
+you can use the generic selector below, but it's slower:
+[class*="icon-"] {
+*/
+.icon-bubble, .icon-sad, .icon-smiley, .icon-clock, .icon-cog {
+  font-family: 'safari-feed';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased; }
+
+.icon-bubble:before {
+  content: "\e000"; }
+
+.icon-sad:before {
+  content: "\e002"; }
+
+.icon-smiley:before {
+  content: "\e003"; }
+
+.icon-clock:before {
+  content: "\e001"; }
+
+.icon-cog:before {
+  content: "\e004"; }
