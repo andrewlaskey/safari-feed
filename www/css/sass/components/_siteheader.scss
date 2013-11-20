@@ -7,7 +7,9 @@
 	top: 0;
 	left: 0;
 	right: 0;
-	padding: 0.3em 1em;
+	z-index: 99;
+	padding: 0 1em;
+	height: $header-height;
 	background: $header-bg;
 	@include clearfix;
 }
@@ -20,4 +22,14 @@
 
 .SiteHeader-button {
 	float: right;
+	margin-left: 3px;
+	height: $header-height;
+	width: $header-height;
+	line-height: $header-height;
+	text-align: center;
+	background: lighten($header-bg, 12%);
+	color: $white;
+	font-size: 1.65em;
+	border: none;
+	cursor: pointer;
 }

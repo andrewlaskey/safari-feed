@@ -1,0 +1,28 @@
+//
+// Fill Section
+//
+
+.FillSection {
+	position: fixed;
+	top: $header-height;
+	left: 0;
+	right: 0;
+	bottom: 0;
+
+	@include transition(all 0.35s ease);
+
+	&.FillSection--map {
+
+		&.is-hidden {
+			@include transform(translateX(100%));
+		}
+	}
+
+	&.FillSection--info {
+		padding-top: 3rem;
+
+		&.is-hidden {
+			@include transform(translateX(-100%));
+		}
+	}
+}
