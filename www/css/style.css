@@ -36,10 +36,12 @@ you can use the generic selector below, but it's slower:
   content: "\e000"; }
 
 .icon-sad:before {
-  content: "\e002"; }
+  content: "\e002";
+  color: #bb3e3e; }
 
 .icon-smiley:before {
-  content: "\e003"; }
+  content: "\e003";
+  color: #9ccd6a; }
 
 .icon-clock:before {
   content: "\e001"; }
@@ -178,6 +180,7 @@ small, .u-textMilli {
   padding: 0 1em;
   height: 3rem;
   background: #ef761f;
+  border-bottom: 1px solid #cc5e0f;
   *zoom: 1; }
   .SiteHeader:before, .SiteHeader:after {
     content: " ";
@@ -193,7 +196,7 @@ small, .u-textMilli {
 .SiteHeader-button {
   float: right;
   margin-left: 3px;
-  height: 3rem;
+  height: 100%;
   width: 3rem;
   line-height: 3rem;
   text-align: center;
@@ -232,8 +235,23 @@ small, .u-textMilli {
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 999;
-  background: #faf4ea; }
+  z-index: 9999;
+  background: #faf4ea;
+  border-top: 1px solid #ebd4ac;
+  -webkit-transform: translateY(100%);
+  -moz-transform: translateY(100%);
+  -ms-transform: translateY(100%);
+  -o-transform: translateY(100%);
+  transform: translateY(100%);
+  -webkit-transition: all 0.35s ease;
+  -moz-transition: all 0.35s ease;
+  transition: all 0.35s ease; }
+  .Comments.is-open {
+    -webkit-transform: translateY(0%);
+    -moz-transform: translateY(0%);
+    -ms-transform: translateY(0%);
+    -o-transform: translateY(0%);
+    transform: translateY(0%); }
 
 .LastUpdate {
   position: absolute;
@@ -242,7 +260,57 @@ small, .u-textMilli {
   right: 0;
   padding: 0.4em 1em;
   background: #faf4ea;
-  box-shadow: 0 1px 2px 1px rgba(68, 68, 68, 0.6); }
+  box-shadow: 0 1px 2px 1px rgba(68, 68, 68, 0.6);
+  *zoom: 1;
+  -webkit-transform: translateY(146%);
+  -moz-transform: translateY(146%);
+  -ms-transform: translateY(146%);
+  -o-transform: translateY(146%);
+  transform: translateY(146%);
+  -webkit-transition: all 0.35s ease;
+  -moz-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+  z-index: -1; }
+  .LastUpdate:before, .LastUpdate:after {
+    content: " ";
+    display: table; }
+  .LastUpdate:after {
+    clear: both; }
+  .LastUpdate.is-open {
+    -webkit-transform: translateY(0%);
+    -moz-transform: translateY(0%);
+    -ms-transform: translateY(0%);
+    -o-transform: translateY(0%);
+    transform: translateY(0%); }
 
 #email {
   display: none; }
+
+.LastUpdate-sentiment {
+  float: left;
+  margin-right: 0.5em;
+  width: 2em;
+  text-align: center; }
+
+.AddComment {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  background: #faf4ea; }
+
+.AddComment input[type="text"] {
+  margin-bottom: 0.5em;
+  padding: 0.6em;
+  width: 100%;
+  background: #ebd4ac;
+  box-shadow: none;
+  border: none;
+  color: white; }
+
+.AddComment-buttons {
+  text-align: center; }
+  .AddComment-buttons button {
+    padding: 0 1em;
+    border: 1px solid #ebd4ac;
+    border-radius: 2px;
+    background: #faf4ea;
+    cursor: pointer; }

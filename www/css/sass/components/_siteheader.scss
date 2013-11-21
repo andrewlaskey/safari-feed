@@ -11,6 +11,7 @@
 	padding: 0 1em;
 	height: $header-height;
 	background: $header-bg;
+	border-bottom: 1px solid darken($header-bg, 10%);
 	@include clearfix;
 }
 
@@ -23,7 +24,7 @@
 .SiteHeader-button {
 	float: right;
 	margin-left: 3px;
-	height: $header-height;
+	height: 100%;
 	width: $header-height;
 	line-height: $header-height;
 	text-align: center;

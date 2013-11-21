@@ -42,9 +42,11 @@ you can use the generic selector below, but it's slower:
 }
 .icon-sad:before {
 	content: "\e002";
+	color: $negative;
 }
 .icon-smiley:before {
 	content: "\e003";
+	color: $positive;
 }
 .icon-clock:before {
 	content: "\e001";
