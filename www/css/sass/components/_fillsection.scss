@@ -8,6 +8,7 @@
 	left: 0;
 	right: 0;
 	bottom: 0;
+	overflow: scroll;
 
 	@include transition(all 0.35s ease);
 
@@ -20,6 +21,7 @@
 
 	&.FillSection--info {
 		padding-top: 3rem;
+		background: $body-bg;
 
 		&.is-hidden {
 			@include transform(translateX(-100%));

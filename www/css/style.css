@@ -212,6 +212,7 @@ small, .u-textMilli {
   left: 0;
   right: 0;
   bottom: 0;
+  overflow: scroll;
   -webkit-transition: all 0.35s ease;
   -moz-transition: all 0.35s ease;
   transition: all 0.35s ease; }
@@ -222,7 +223,8 @@ small, .u-textMilli {
     -o-transform: translateX(100%);
     transform: translateX(100%); }
   .FillSection.FillSection--info {
-    padding-top: 3rem; }
+    padding-top: 3rem;
+    background: #faf4ea; }
     .FillSection.FillSection--info.is-hidden {
       -webkit-transform: translateX(-100%);
       -moz-transform: translateX(-100%);

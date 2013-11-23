@@ -470,10 +470,27 @@
 	};
 }());
 
+
+/******** APP FUNCTIONS ***********/
 (function($) {
 
+	//Load the map
 	var map = L.map('map').setView([32.735316,-117.149046], 15);
 
 	L.tileLayer.provider('OpenStreetMap').addTo(map);
+
+	//Button actions
+	$('#update').on('click', function() {
+		if ($('.FillSection--info').hasClass('is-hidden')) {
+			$('.Comments').toggleClass('is-open');
+		} else {
+			$('.FillSection--info').addClass('is-hidden');
+			$('.Comments').addClass('is-open');
+		}
+	});
+
+	$('#settings').on('click', function() {
+		$('.FillSection--info').toggleClass('is-hidden');
+	});
 
 }(jQuery));
