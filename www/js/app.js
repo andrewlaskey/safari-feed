@@ -474,23 +474,71 @@
 /******** APP FUNCTIONS ***********/
 (function($) {
 
-	//Load the map
-	var map = L.map('map').setView([32.735316,-117.149046], 15);
+	var app = {
+		map: '',
+		zoo: {},
+		userCoord: '',
+		init: function() {
+			var self = this;
+			var zooRef = new Firebase('https://safarifeed.firebaseio.com/zoos/0');
 
-	L.tileLayer.provider('OpenStreetMap').addTo(map);
+			zooRef.once('value', function(data){
+				//get zoo data
+				self.zoo = data.val();
 
-	//Button actions
-	$('#update').on('click', function() {
-		if ($('.FillSection--info').hasClass('is-hidden')) {
-			$('.Comments').toggleClass('is-open');
-		} else {
-			$('.FillSection--info').addClass('is-hidden');
-			$('.Comments').addClass('is-open');
+				//Load the map
+				self.map = L.map('map').setView(self.zoo.center.split(','), 15);
+				L.tileLayer.provider('OpenStreetMap').addTo(self.map);
+			});			
+		},
+		postUpdate: function(comment, sentiment, loc) {
+			//alert(comment + ', ' + sentiment + ', ' + loc.latitude + ', ' + loc.longitude);
+
+			//test if in bounds
+
+			//push update to firebase
 		}
-	});
+	}
 
-	$('#settings').on('click', function() {
-		$('.FillSection--info').toggleClass('is-hidden');
+	$(document).ready(function() {
+
+		app.init();
+
+		//Button actions
+		$('#update').on('click', function() {
+			if ($('.FillSection--info').hasClass('is-hidden')) {
+				$('.Comments').toggleClass('is-open');
+			} else {
+				$('.FillSection--info').addClass('is-hidden');
+				$('.Comments').addClass('is-open');
+			}
+		});
+
+		$('#settings').on('click', function() {
+			$('.FillSection--info').toggleClass('is-hidden');
+		});
+
+		$('.js-postUpdate').on('click', function() {
+			var comment = $('#jingle').val();
+			var sentiment = $(this).attr('data-sentiment');
+
+			if (geoPosition.init()) {
+				geoPosition.getCurrentPosition(
+					function(p) {
+						//geoSuccess
+						app.userCoord = {
+							latitude: p.coords.latitude,
+							longitude: p.coords.longitude
+						}
+
+						app.postUpdate(comment, sentiment, app.userCoord);
+					}, 
+					function() {
+						//geoError
+						alert('Sorry we can not find you');
+					});
+			}
+		})
 	});
 
 }(jQuery));
