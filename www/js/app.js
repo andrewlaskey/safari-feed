@@ -492,11 +492,36 @@
 			});			
 		},
 		postUpdate: function(comment, sentiment, loc) {
-			//alert(comment + ', ' + sentiment + ', ' + loc.latitude + ', ' + loc.longitude);
+			console.log(comment + ', ' + sentiment + ', ' + loc.latitude + ', ' + loc.longitude);
 
 			//test if in bounds
+			if (this.testBounds(loc)) {
+				//push update to firebase
+				var updatesRef = new Firebase('https://safarifeed.firebaseio.com/zoos/0/updates');
 
-			//push update to firebase
+				updatesRef.push({
+					comment: comment,
+					sentiment: sentiment,
+					loc: loc,
+					time: Date.now()
+				});
+
+				//clear input for next update
+				$('#jingle').val('');
+
+			} else {
+				alert('You need to be in the zoo to post an update.');
+			}
+
+			
+		},
+		testBounds: function(loc) {
+			if (Math.abs(loc.latitude) >= Math.abs(this.zoo.bounds.latMax)) {return 0;}
+			if (Math.abs(loc.latitude) <= Math.abs(this.zoo.bounds.latMin)) {return 0;}
+			if (Math.abs(loc.longitude) >= Math.abs(this.zoo.bounds.longMax)) {return 0;}
+			if (Math.abs(loc.longitude) <= Math.abs(this.zoo.bounds.longMin)) {return 0;}
+
+			return 1;
 		}
 	}
 
