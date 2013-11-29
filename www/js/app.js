@@ -480,20 +480,22 @@
 		userCoord: '',
 		init: function() {
 			var self = this;
+
+			//Load the map
+			self.map = L.map('map');
+			L.tileLayer.provider('OpenStreetMap').addTo(self.map);
+
 			var zooRef = new Firebase('https://safarifeed.firebaseio.com/zoos/0');
 
 			zooRef.once('value', function(data){
 				//get zoo data
 				self.zoo = data.val();
 
-				//Load the map
-				self.map = L.map('map').setView(self.zoo.center.split(','), 15);
-				L.tileLayer.provider('OpenStreetMap').addTo(self.map);
-			});			
+				//Position the map over Zoo
+				self.map.setView(self.zoo.center.split(','), 15);
+			});	
 		},
 		postUpdate: function(comment, sentiment, loc) {
-			console.log(comment + ', ' + sentiment + ', ' + loc.latitude + ', ' + loc.longitude);
-
 			//test if in bounds
 			if (this.testBounds(loc)) {
 				//push update to firebase
@@ -511,9 +513,16 @@
 
 			} else {
 				alert('You need to be in the zoo to post an update.');
-			}
+				$('#jingle').val('');
+			}	
+		},
+		getUpdates: function(snapshot, testTime) {
+			var self = this;
+			var updateData = snapshot.val();
 
-			
+			if (updateData.time >= testTime.valueOf()) {
+				var marker = L.marker([updateData.loc.latitude, updateData.loc.longitude]).addTo(app.map);
+			}
 		},
 		testBounds: function(loc) {
 			if (Math.abs(loc.latitude) >= Math.abs(this.zoo.bounds.latMax)) {return 0;}
@@ -528,6 +537,20 @@
 	$(document).ready(function() {
 
 		app.init();
+
+		//Listener
+		var updateListen = new Firebase('https://safarifeed.firebaseio.com/zoos/0/updates');
+
+		//get the current time on page load
+		var currentTime = new Date();
+
+		//How many minutes before the current time should we query from Firebase
+		var checkMinutes = 10;
+		currentTime.setMinutes(currentTime.getMinutes() - checkMinutes);
+
+		updateListen.on('child_added', function(snapshot) {
+			app.getUpdates(snapshot, currentTime);
+		});
 
 		//Button actions
 		$('#update').on('click', function() {
