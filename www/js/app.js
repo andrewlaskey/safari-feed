@@ -539,15 +539,20 @@ var HeatCanvas=function(a){if(typeof(a)=="string"){this.canvas=document.getEleme
 				var updates = data.val();
 
 				_.each(updates, function(value, key){	
-					console.log(value.loc.latitude + ', ' + value.loc.longitude);
-					heatmapLayer.pushData(
-						value.loc.latitude,
-						value.loc.longitude,
-						15
-					);
+					
+					var currentHour = new moment().hour();
+					var updateHour = new moment(value.time).hour();
+
+					if (updateHour === currentHour) {
+						heatmapLayer.pushData(
+							value.loc.latitude,
+							value.loc.longitude,
+							15
+						);
+					}
 				});
 
-				self.map.addLayer(heatmapLayer);
+				//self.map.addLayer(heatmapLayer);
 
 				var overlayMaps = {
 					'Historic Activity': heatmapLayer
@@ -574,10 +579,12 @@ var HeatCanvas=function(a){if(typeof(a)=="string"){this.canvas=document.getEleme
 
 				//clear input for next update
 				$('#jingle').val('');
+				$('.Comments').removeClass('is-thinking');
 
 			} else {
 				alert('You need to be in the zoo to post an update.');
 				$('#jingle').val('');
+				$('.Comments').removeClass('is-thinking');
 			}	
 		},
 		getUpdates: function(snapshot, testTime) {
@@ -651,6 +658,8 @@ var HeatCanvas=function(a){if(typeof(a)=="string"){this.canvas=document.getEleme
 			var comment = $('#jingle').val();
 			var sentiment = $(this).attr('data-sentiment');
 
+			$('.Comments').addClass('is-thinking');
+
 			if (geoPosition.init()) {
 				geoPosition.getCurrentPosition(
 					function(p) {
@@ -665,6 +674,7 @@ var HeatCanvas=function(a){if(typeof(a)=="string"){this.canvas=document.getEleme
 					function() {
 						//geoError
 						alert('Sorry we can not find you');
+						$('.Comments').removeClass('is-thinking');
 					});
 			}
 		})

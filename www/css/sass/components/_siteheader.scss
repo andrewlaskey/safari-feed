@@ -19,18 +19,23 @@
 	margin: 0;
 	float: left;
 	color: $white;
+
+	@media screen and (max-width: $break-small) {
+		font-size: 1.5em;
+		line-height: $header-height;
+	}
 }
 
 .SiteHeader-button {
 	float: right;
 	margin-left: 3px;
 	height: 100%;
-	width: $header-height;
+	padding: 0 0.5em;
 	line-height: $header-height;
 	text-align: center;
-	background: lighten($header-bg, 12%);
+	background: none;
 	color: $white;
-	font-size: 1.65em;
+	font-size: 1.25em;
 	border: none;
 	cursor: pointer;
 }

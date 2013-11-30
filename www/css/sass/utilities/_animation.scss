@@ -1,0 +1,22 @@
+//
+// Animations
+//
+
+@include keyframes(flip) {
+	from {
+		@include transform(perspective(300px) rotateY(0deg) translateZ(0) scale(1));
+	}
+
+	to {
+		@include transform(perspective(300px) rotateY(360deg) translateZ(0) scale(.95));
+	}
+}
+
+.u-animateFlipContainer {
+	@include perspective(300px);
+}
+
+.u-animateFlip {
+	backface-visibility: visible;
+	@include animation(flip 1s infinite);	
+}

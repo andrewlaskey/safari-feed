@@ -2,32 +2,14 @@
 	font-family: 'safari-feed';
 	src:url('../fonts/safari-feed.eot');
 	src:url('../fonts/safari-feed.eot?#iefix') format('embedded-opentype'),
-		url('../fonts/safari-feed.woff') format('woff'),
 		url('../fonts/safari-feed.ttf') format('truetype'),
+		url('../fonts/safari-feed.woff') format('woff'),
 		url('../fonts/safari-feed.svg#safari-feed') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
 
-/* Use the following CSS code if you want to use data attributes for inserting your icons */
-[data-icon]:before {
-	font-family: 'safari-feed';
-	content: attr(data-icon);
-	speak: none;
-	font-weight: normal;
-	font-variant: normal;
-	text-transform: none;
-	line-height: 1;
-	-webkit-font-smoothing: antialiased;
-}
-
-/* Use the following CSS code if you want to have a class per icon */
-/*
-Instead of a list of all class selectors,
-you can use the generic selector below, but it's slower:
-[class*="icon-"] {
-*/
-.icon-bubble, .icon-sad, .icon-smiley, .icon-clock, .icon-cog {
+[class^="icon-"], [class*=" icon-"] {
 	font-family: 'safari-feed';
 	speak: none;
 	font-style: normal;
@@ -35,20 +17,27 @@ you can use the generic selector below, but it's slower:
 	font-variant: normal;
 	text-transform: none;
 	line-height: 1;
+
+	/* Better Font Rendering =========== */
 	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
-.icon-bubble:before {
-	content: "\e000";
-}
+
 .icon-sad:before {
-	content: "\e002";
+	content: "\e600";
 }
 .icon-smiley:before {
-	content: "\e003";
+	content: "\e601";
 }
-.icon-clock:before {
-	content: "\e001";
+.icon-bubble:before {
+	content: "\e602";
 }
 .icon-cog:before {
-	content: "\e004";
+	content: "\e603";
+}
+.icon-spinner:before {
+	content: "\e604";
+}
+.icon-bubble2:before {
+	content: "\e605";
 }

@@ -11,10 +11,17 @@
 	background: $body-bg;
 	border-top: 1px solid #ebd4ac;
 	@include transform(translateY(100%));
-	@include transition(all 0.35s ease);
+	@include transition(all 0.15s ease);
 
 	&.is-open {
 		@include transform(translateY(0%));		
+	}
+
+	&.is-thinking {
+
+		.Comments-thinking {
+			display: block;
+		}
 	}
 }
 
@@ -71,6 +78,20 @@
 		border: 1px solid #ebd4ac;
 		border-radius: 2px;
 		background: $body-bg;
+		color: $header-bg;
 		cursor: pointer;
 	}
+}
+
+.Comments-thinking {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	padding: 2em 0;
+	background: rgba($body-bg, 0.8);
+	color: $header-bg;
+	text-align: center;
+	display: none;
 }
