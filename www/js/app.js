@@ -504,6 +504,8 @@ var HeatCanvas=function(a){if(typeof(a)=="string"){this.canvas=document.getEleme
 		map: '',
 		zoo: {},
 		userCoord: '',
+		heatmapLayer: '',
+		updateListener: '',
 		init: function() {
 			var self = this;
 
@@ -521,12 +523,35 @@ var HeatCanvas=function(a){if(typeof(a)=="string"){this.canvas=document.getEleme
 				self.map.setView(self.zoo.center.split(','), 15);
 			});
 
-			self.addHeatmap();	
+			//Add the heatmap
+			self.addHeatmap();
+
+			var overlayMaps = {
+				'Historic Activity': self.heatmapLayer
+			};
+
+			var controls = L.control.layers(null, overlayMaps, {collapsed: false});
+
+			controls.addTo(self.map);
+
+			//Add the listener	
+			self.updateListener = new Firebase('https://safarifeed.firebaseio.com/zoos/0/updates');
+
+			//get the current time on page load
+			var currentTime = new Date();
+
+			//How many minutes before the current time should we query from Firebase
+			var checkMinutes = 60;
+			currentTime.setMinutes(currentTime.getMinutes() - checkMinutes);
+
+			self.updateListener.on('child_added', function(snapshot) {
+				self.getUpdates(snapshot, currentTime);
+			});
 		},
 		addHeatmap: function() {
 			var self = this;
 
-			var heatmapLayer = new L.TileLayer.HeatCanvas({},{
+			self.heatmapLayer = new L.TileLayer.HeatCanvas({},{
 				'step':0.5,
                 'degree':HeatCanvas.LINEAR,
                 'opacity':0.7
@@ -544,23 +569,13 @@ var HeatCanvas=function(a){if(typeof(a)=="string"){this.canvas=document.getEleme
 					var updateHour = new moment(value.time).hour();
 
 					if (updateHour === currentHour) {
-						heatmapLayer.pushData(
+						self.heatmapLayer.pushData(
 							value.loc.latitude,
 							value.loc.longitude,
 							15
 						);
 					}
 				});
-
-				//self.map.addLayer(heatmapLayer);
-
-				var overlayMaps = {
-					'Historic Activity': heatmapLayer
-				};
-
-				var controls = L.control.layers(null, overlayMaps, {collapsed: false});
-
-				controls.addTo(self.map);
 			});
 
 		},
@@ -617,6 +632,37 @@ var HeatCanvas=function(a){if(typeof(a)=="string"){this.canvas=document.getEleme
 			if (Math.abs(loc.longitude) <= Math.abs(this.zoo.bounds.longMin)) {return 0;}
 
 			return 1;
+		},
+		refreshApp: function() {
+			var self = this;
+
+			//Clear Heatmap and Reload Data
+			self.heatmapLayer.clear();
+
+			var heatmapDataRef = new Firebase('https://safarifeed.firebaseio.com/zoos/0/updates');
+
+			heatmapDataRef.once('value', function(data) {
+
+				var updates = data.val();
+
+				_.each(updates, function(value, key){	
+					
+					var currentHour = new moment().hour();
+					var updateHour = new moment(value.time).hour();
+
+					if (updateHour === currentHour) {
+						self.heatmapLayer.pushData(
+							value.loc.latitude,
+							value.loc.longitude,
+							15
+						);
+					}
+				});
+				
+			});
+
+			//Clear all the markers and restart the listener
+
 		}
 	}
 
@@ -627,18 +673,7 @@ var HeatCanvas=function(a){if(typeof(a)=="string"){this.canvas=document.getEleme
 		app.init();
 
 		//Listener
-		var updateListen = new Firebase('https://safarifeed.firebaseio.com/zoos/0/updates');
-
-		//get the current time on page load
-		var currentTime = new Date();
-
-		//How many minutes before the current time should we query from Firebase
-		var checkMinutes = 140;
-		currentTime.setMinutes(currentTime.getMinutes() - checkMinutes);
-
-		updateListen.on('child_added', function(snapshot) {
-			app.getUpdates(snapshot, currentTime);
-		});
+		
 
 		//Button actions
 		$('#update').on('click', function() {
@@ -652,6 +687,10 @@ var HeatCanvas=function(a){if(typeof(a)=="string"){this.canvas=document.getEleme
 
 		$('#settings').on('click', function() {
 			$('.FillSection--info').toggleClass('is-hidden');
+		});
+
+		$('#refresh').on('click', function() {
+			app.refreshApp();
 		});
 
 		$('.js-postUpdate').on('click', function() {
