@@ -505,6 +505,7 @@ var HeatCanvas=function(a){if(typeof(a)=="string"){this.canvas=document.getEleme
 		zoo: {},
 		userCoord: '',
 		heatmapLayer: '',
+		updateMarkers: new Array(),
 		updateListener: '',
 		init: function() {
 			var self = this;
@@ -622,7 +623,9 @@ var HeatCanvas=function(a){if(typeof(a)=="string"){this.canvas=document.getEleme
 
 				var marker = L.marker([updateData.loc.latitude, updateData.loc.longitude], {icon: iconMarker})
 					.bindPopup('<strong>' + updateData.comment + '</strong><br /><i>' + moment(updateData.time).format("M/D/YY, h:mm a") + '</i>')
-					.addTo(self.map);
+				
+				self.updateMarkers.push(marker);
+				self.updateMarkers[self.updateMarkers.length - 1].addTo(self.map);
 			}
 		},
 		testBounds: function(loc) {
@@ -661,7 +664,10 @@ var HeatCanvas=function(a){if(typeof(a)=="string"){this.canvas=document.getEleme
 				
 			});
 
-			//Clear all the markers and restart the listener
+			//Clear all the markers
+			for(i = 0; i < self.updateMarkers.length; i++) {
+				self.map.removeLayer(self.updateMarkers[i]);
+			}
 
 		}
 	}
