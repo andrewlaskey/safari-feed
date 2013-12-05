@@ -41,8 +41,8 @@
 body {
   margin: 0;
   padding: 0;
-  background: #faf4ea;
-  color: #463c33;
+  background: #5c4b51;
+  color: white;
   font-family: 'Helvetica Neue', Helvetica, sans-serif; }
 
 html, body, #map {
@@ -222,10 +222,10 @@ small, .u-textMilli {
   max-width: 42em; }
 
 .u-positive {
-  color: #9ccd6a; }
+  color: #8cbeb2; }
 
 .u-negative {
-  color: #bb3e3e; }
+  color: #f06060; }
 
 @-webkit-keyframes flip {
   from {
@@ -274,8 +274,8 @@ small, .u-textMilli {
   z-index: 99;
   padding: 0 1em;
   height: 3rem;
-  background: #ef761f;
-  border-bottom: 1px solid #cc5e0f;
+  background: #f06060;
+  border-bottom: 1px solid #ec3131;
   *zoom: 1; }
   .SiteHeader:before, .SiteHeader:after {
     content: " ";
@@ -286,7 +286,8 @@ small, .u-textMilli {
 .SiteHeader-name {
   margin: 0;
   float: left;
-  color: white; }
+  color: white;
+  font-family: 'Pacifico', cursive; }
   @media screen and (max-width: 42em) {
     .SiteHeader-name {
       font-size: 1.5em;
@@ -323,7 +324,8 @@ small, .u-textMilli {
     transform: translateX(100%); }
   .FillSection.FillSection--info {
     padding-top: 3rem;
-    background: #faf4ea; }
+    background: #fff;
+    color: #5c4b51; }
     .FillSection.FillSection--info.is-hidden {
       -webkit-transform: translateX(-100%);
       -moz-transform: translateX(-100%);
@@ -337,8 +339,7 @@ small, .u-textMilli {
   right: 0;
   bottom: 0;
   z-index: 9999;
-  background: #faf4ea;
-  border-top: 1px solid #ebd4ac;
+  background: #5c4b51;
   -webkit-transform: translateY(100%);
   -moz-transform: translateY(100%);
   -ms-transform: translateY(100%);
@@ -362,7 +363,7 @@ small, .u-textMilli {
   left: 0;
   right: 0;
   padding: 0.4em 1em;
-  background: #faf4ea;
+  background: #5c4b51;
   box-shadow: 0 1px 2px 1px rgba(68, 68, 68, 0.6);
   *zoom: 1;
   -webkit-transform: translateY(146%);
@@ -398,26 +399,42 @@ small, .u-textMilli {
 .AddComment {
   padding-top: 0.5em;
   padding-bottom: 0.5em;
-  background: #faf4ea; }
+  background: #5c4b51; }
 
 .AddComment input[type="text"] {
   margin-bottom: 0.5em;
   padding: 0.6em;
   width: 100%;
-  background: #ebd4ac;
+  background: white;
   box-shadow: none;
   border: none;
-  color: white; }
+  color: #5c4b51; }
+  .AddComment input[type="text"]::-webkit-input-placeholder {
+    font-style: italic;
+    color: #5c4b51; }
+  .AddComment input[type="text"]:-moz-placeholder {
+    /* Firefox 18- */
+    font-style: italic;
+    color: #5c4b51; }
+  .AddComment input[type="text"]::-moz-placeholder {
+    /* Firefox 19+ */
+    font-style: italic;
+    color: #5c4b51; }
+  .AddComment input[type="text"]:-ms-input-placeholder {
+    font-style: italic;
+    color: #5c4b51; }
 
 .AddComment-buttons {
   text-align: center; }
   .AddComment-buttons button {
     padding: 0 1em;
-    border: 1px solid #ebd4ac;
+    border: none;
     border-radius: 2px;
-    background: #faf4ea;
-    color: #ef761f;
+    background: #f06060;
+    color: #fff;
     cursor: pointer; }
+    .AddComment-buttons button[data-sentiment="pos"] {
+      background: #8cbeb2; }
 
 .Comments-thinking {
   position: absolute;
@@ -426,7 +443,20 @@ small, .u-textMilli {
   right: 0;
   bottom: 0;
   padding: 2em 0;
-  background: rgba(250, 244, 234, 0.8);
-  color: #ef761f;
+  background: rgba(92, 75, 81, 0.8);
+  color: #f06060;
   text-align: center;
   display: none; }
+
+.Examples {
+  list-style-type: none;
+  font-style: italic; }
+  .Examples i {
+    margin-right: 0.5em; }
+
+a {
+  color: #8cbeb2; }
+  a:hover, a:active {
+    color: #72afa1; }
+  a:visited {
+    color: #8cbeb2; }

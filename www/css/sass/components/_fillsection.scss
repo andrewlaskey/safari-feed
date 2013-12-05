@@ -21,7 +21,8 @@
 
 	&.FillSection--info {
 		padding-top: 3rem;
-		background: $body-bg;
+		background: #fff;
+		color: $dark;
 
 		&.is-hidden {
 			@include transform(translateX(-100%));
