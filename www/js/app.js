@@ -720,7 +720,11 @@ var HeatCanvas=function(a){if(typeof(a)=="string"){this.canvas=document.getEleme
 						//geoError
 						alert('Sorry we can not find you');
 						$('.Comments').removeClass('is-thinking');
-					});
+					},
+					{
+						enableHighAccuracy: true
+					}
+				);
 			}
 		})
 	});
