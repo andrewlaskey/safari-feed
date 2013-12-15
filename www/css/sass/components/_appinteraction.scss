@@ -9,12 +9,18 @@
 	bottom: 0;
 	z-index: 9999;
 	background: $body-bg;
-	border-top: 1px solid #ebd4ac;
 	@include transform(translateY(100%));
-	@include transition(all 0.35s ease);
+	@include transition(all 0.15s ease);
 
 	&.is-open {
 		@include transform(translateY(0%));		
+	}
+
+	&.is-thinking {
+
+		.Comments-thinking {
+			display: block;
+		}
 	}
 }
 
@@ -57,10 +63,30 @@
 	margin-bottom: 0.5em;
 	padding: 0.6em;
 	width: 100%;
-	background: #ebd4ac;
+	background: $white;
 	box-shadow: none;
 	border: none;
-	color: $white;
+	color: $dark;
+
+	&::-webkit-input-placeholder {
+		font-style: italic;
+		color: $dark;
+	}
+
+	&:-moz-placeholder { /* Firefox 18- */
+		font-style: italic;
+		color: $dark;
+	}
+
+	&::-moz-placeholder {  /* Firefox 19+ */
+		font-style: italic;
+		color: $dark;
+	}
+
+	&:-ms-input-placeholder {  
+		font-style: italic;
+		color: $dark;
+	}
 }
 
 .AddComment-buttons {
@@ -68,9 +94,27 @@
 	
 	button {
 		padding: 0 1em;
-		border: 1px solid #ebd4ac;
+		border: none;
 		border-radius: 2px;
-		background: $body-bg;
+		background: $header-bg;
+		color: #fff;
 		cursor: pointer;
+
+		&[data-sentiment="pos"] {
+			background: $positive;
+		}
 	}
+}
+
+.Comments-thinking {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	padding: 2em 0;
+	background: rgba($body-bg, 0.8);
+	color: $header-bg;
+	text-align: center;
+	display: none;
 }

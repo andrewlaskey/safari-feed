@@ -1,0 +1,25 @@
+//
+// Info Page Components
+//
+
+.Examples {
+	list-style-type: none;
+	font-style: italic;
+
+	i {
+		margin-right: 0.5em;
+	}
+}
+
+a {
+	color: $green;
+
+	&:hover,
+	&:active {
+		color: darken($green, 8%);
+	}
+
+	&:visited {
+		color: $green;
+	}
+}

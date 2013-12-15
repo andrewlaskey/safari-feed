@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*
 Syntax error: File to import not found or unreadable: general/markericons.
               Load path: /Users/andrewlaskey/Dropbox/gits/safari-feed/www/css
@@ -70,3 +71,467 @@ body:before {
   white-space: pre;
   font-family: monospace;
   content: "Syntax error: File to import not found or unreadable: general/markericons.\A               Load path: /Users/andrewlaskey/Dropbox/gits/safari-feed/www/css\A         on line 7 of sass/style.scss\A \A 2: \A 3: @import \"general/colors\";\A 4: @import \"general/settings\";\A 5: @import \"general/icons\";\A 6: @import \"general/sitewide\";\A 7: @import \"general/markericons\";\A 8: \A 9: @import \"utilities/vertical-rhythm\";\A 10: @import \"utilities/layout\";\A 11: @import \"utilities/color-util\";\A 12: @import \"utilities/animation\";"; }
+=======
+@font-face {
+  font-family: 'safari-feed';
+  src: url("../fonts/safari-feed.eot");
+  src: url("../fonts/safari-feed.eot?#iefix") format("embedded-opentype"), url("../fonts/safari-feed.ttf") format("truetype"), url("../fonts/safari-feed.woff") format("woff"), url("../fonts/safari-feed.svg#safari-feed") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+[class^="icon-"], [class*=" icon-"] {
+  font-family: 'safari-feed';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+.icon-sad:before {
+  content: "\e600"; }
+
+.icon-smiley:before {
+  content: "\e601"; }
+
+.icon-bubble:before {
+  content: "\e602"; }
+
+.icon-cog:before {
+  content: "\e603"; }
+
+.icon-spinner:before {
+  content: "\e604"; }
+
+.icon-bubble2:before {
+  content: "\e605"; }
+
+* {
+  box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #5c4b51;
+  color: white;
+  font-family: 'Helvetica Neue', Helvetica, sans-serif; }
+
+html, body, #map {
+  height: 100%; }
+
+/* 
+Author: L. Voogdt
+License: MIT
+Version: 1.0
+*/
+/* Marker setup */
+.awesome-marker {
+  background: url("../images/markers-soft.png") no-repeat 0 0;
+  width: 35px;
+  height: 46px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: block;
+  text-align: center; }
+
+.awesome-marker-shadow {
+  background: url("../images/markers-shadow.png") no-repeat 0 0;
+  width: 36px;
+  height: 16px; }
+
+/* Retina displays */
+@media (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3 / 2), (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5), (min-resolution: 1.5dppx) {
+  .awesome-marker {
+    background-image: url("../images/markers-soft@2x.png");
+    background-size: 360px 46px; }
+
+  .awesome-marker-shadow {
+    background-image: url("../images/markers-shadow@2x.png");
+    background-size: 35px 16px; } }
+.awesome-marker i {
+  color: #333;
+  margin-top: 10px;
+  display: inline-block;
+  font-size: 14px; }
+
+.awesome-marker .icon-white {
+  color: #fff; }
+
+/* Colors */
+.awesome-marker-icon-red {
+  background-position: 0 0; }
+
+.awesome-marker-icon-darkred {
+  background-position: -180px 0; }
+
+.awesome-marker-icon-orange {
+  background-position: -36px 0; }
+
+.awesome-marker-icon-green {
+  background-position: -72px 0; }
+
+.awesome-marker-icon-darkgreen {
+  background-position: -252px 0; }
+
+.awesome-marker-icon-blue {
+  background-position: -108px 0; }
+
+.awesome-marker-icon-darkblue {
+  background-position: -216px 0; }
+
+.awesome-marker-icon-purple {
+  background-position: -144px 0; }
+
+.awesome-marker-icon-darkpurple {
+  background-position: -288px 0; }
+
+.awesome-marker-icon-cadetblue {
+  background-position: -324px 0; }
+
+/* Housekeeping */
+* {
+  margin: 0;
+  padding: 0; }
+
+/* Define your base font-size here; most elements will inherit this. */
+html {
+  font-size: 1em;
+  /* Assuming 16px... */
+  line-height: 1.5;
+  /* 24px (This is now our magic number; all subsequent margin-bottoms and line-heights want to be a multiple of this number in order to maintain vertical rhythm.) */ }
+
+/* Common margin-bottom for vertical rhythm. */
+h1, h2, h3, h4, h5, h6,
+ul, ol, dl,
+fieldset,
+p,
+table,
+pre,
+hr {
+  margin-bottom: 24px;
+  margin-bottom: 1.5rem; }
+
+/* These handle massive type, for less frequently occuring bits of text (e.g. in mastheads and banners). */
+.u-textGiga {
+  font-size: 80px;
+  font-size: 5rem;
+  /* 80px */
+  line-height: 1.2;
+  /* 96px */ }
+
+.u-textMega {
+  font-size: 64px;
+  font-size: 4rem;
+  /* 64px */
+  line-height: 1.125;
+  /* 72px */ }
+
+.u-textKilo {
+  font-size: 48px;
+  font-size: 3rem;
+  /* 48px */
+  line-height: 1;
+  /* 48px */ }
+
+/* Define headings and their associated classes here. */
+h1, .u-textAlpha {
+  font-size: 32px;
+  font-size: 2rem;
+  /* 32px */
+  line-height: 1.5;
+  /* 48px */ }
+
+h2, .u-textBeta {
+  font-size: 1.5em;
+  /* 24px */
+  line-height: 1;
+  /* 24px */ }
+
+h3, .u-textGamma {
+  font-size: 20px;
+  font-size: 1.25rem;
+  /* 20px */
+  line-height: 1.2;
+  /* 24px */ }
+
+h4, .u-textDelta {
+  font-size: 18px;
+  font-size: 1.125rem;
+  /* 18px */
+  line-height: 1.333;
+  /* 24px */ }
+
+h5, .u-textEpsilon {
+  font-size: 16px;
+  font-size: 1rem;
+  /* 16px */
+  line-height: 1.5;
+  /* 24px */ }
+
+h6, .u-textZeta {
+  font-size: 16px;
+  font-size: 1rem;
+  /* 16px */
+  line-height: 1.5;
+  /* 24px */ }
+
+/* Smaller-than-body-copy sizes here. */
+small, .u-textMilli {
+  font-size: 12px;
+  font-size: 0.75rem;
+  /* 12px */
+  line-height: 2;
+  /* 24px */ }
+
+.u-centerWrap {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1em;
+  padding-right: 1em;
+  width: 100%;
+  max-width: 42em; }
+
+.u-positive {
+  color: #8cbeb2; }
+
+.u-negative {
+  color: #f06060; }
+
+@-webkit-keyframes flip {
+  from {
+    -webkit-transform: perspective(300px) rotateY(0deg) translateZ(0) scale(1); }
+
+  to {
+    -webkit-transform: perspective(300px) rotateY(360deg) translateZ(0) scale(0.95); } }
+
+@-moz-keyframes flip {
+  from {
+    -moz-transform: perspective(300px) rotateY(0deg) translateZ(0) scale(1); }
+
+  to {
+    -moz-transform: perspective(300px) rotateY(360deg) translateZ(0) scale(0.95); } }
+
+@-o-keyframes flip {
+  from {
+    -o-transform: perspective(300px) rotateY(0deg) translateZ(0) scale(1); }
+
+  to {
+    -o-transform: perspective(300px) rotateY(360deg) translateZ(0) scale(0.95); } }
+
+@keyframes flip {
+  from {
+    transform: perspective(300px) rotateY(0deg) translateZ(0) scale(1); }
+
+  to {
+    transform: perspective(300px) rotateY(360deg) translateZ(0) scale(0.95); } }
+
+.u-animateFlipContainer {
+  -webkit-perspective: 300px;
+  -moz-perspective: 300px;
+  perspective: 300px; }
+
+.u-animateFlip {
+  backface-visibility: visible;
+  -webkit-animation: flip 1s infinite;
+  -moz-animation: flip 1s infinite;
+  animation: flip 1s infinite; }
+
+.SiteHeader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  padding: 0 1em;
+  height: 3rem;
+  background: #f06060;
+  border-bottom: 1px solid #ec3131;
+  *zoom: 1; }
+  .SiteHeader:before, .SiteHeader:after {
+    content: " ";
+    display: table; }
+  .SiteHeader:after {
+    clear: both; }
+
+.SiteHeader-name {
+  margin: 0;
+  float: left;
+  color: white;
+  font-family: 'Pacifico', cursive; }
+  @media screen and (max-width: 42em) {
+    .SiteHeader-name {
+      font-size: 1.5em;
+      line-height: 3rem; } }
+
+.SiteHeader-button {
+  float: right;
+  margin-left: 3px;
+  height: 100%;
+  padding: 0 0.5em;
+  line-height: 3rem;
+  text-align: center;
+  background: none;
+  color: white;
+  font-size: 1.25em;
+  border: none;
+  cursor: pointer; }
+
+.FillSection {
+  position: fixed;
+  top: 3rem;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: scroll;
+  -webkit-transition: all 0.35s ease;
+  -moz-transition: all 0.35s ease;
+  transition: all 0.35s ease; }
+  .FillSection.FillSection--map.is-hidden {
+    -webkit-transform: translateX(100%);
+    -moz-transform: translateX(100%);
+    -ms-transform: translateX(100%);
+    -o-transform: translateX(100%);
+    transform: translateX(100%); }
+  .FillSection.FillSection--info {
+    padding-top: 3rem;
+    background: #fff;
+    color: #5c4b51; }
+    .FillSection.FillSection--info.is-hidden {
+      -webkit-transform: translateX(-100%);
+      -moz-transform: translateX(-100%);
+      -ms-transform: translateX(-100%);
+      -o-transform: translateX(-100%);
+      transform: translateX(-100%); }
+
+.Comments {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  background: #5c4b51;
+  -webkit-transform: translateY(100%);
+  -moz-transform: translateY(100%);
+  -ms-transform: translateY(100%);
+  -o-transform: translateY(100%);
+  transform: translateY(100%);
+  -webkit-transition: all 0.15s ease;
+  -moz-transition: all 0.15s ease;
+  transition: all 0.15s ease; }
+  .Comments.is-open {
+    -webkit-transform: translateY(0%);
+    -moz-transform: translateY(0%);
+    -ms-transform: translateY(0%);
+    -o-transform: translateY(0%);
+    transform: translateY(0%); }
+  .Comments.is-thinking .Comments-thinking {
+    display: block; }
+
+.LastUpdate {
+  position: absolute;
+  bottom: 116%;
+  left: 0;
+  right: 0;
+  padding: 0.4em 1em;
+  background: #5c4b51;
+  box-shadow: 0 1px 2px 1px rgba(68, 68, 68, 0.6);
+  *zoom: 1;
+  -webkit-transform: translateY(146%);
+  -moz-transform: translateY(146%);
+  -ms-transform: translateY(146%);
+  -o-transform: translateY(146%);
+  transform: translateY(146%);
+  -webkit-transition: all 0.35s ease;
+  -moz-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+  z-index: -1; }
+  .LastUpdate:before, .LastUpdate:after {
+    content: " ";
+    display: table; }
+  .LastUpdate:after {
+    clear: both; }
+  .LastUpdate.is-open {
+    -webkit-transform: translateY(0%);
+    -moz-transform: translateY(0%);
+    -ms-transform: translateY(0%);
+    -o-transform: translateY(0%);
+    transform: translateY(0%); }
+
+#email {
+  display: none; }
+
+.LastUpdate-sentiment {
+  float: left;
+  margin-right: 0.5em;
+  width: 2em;
+  text-align: center; }
+
+.AddComment {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  background: #5c4b51; }
+
+.AddComment input[type="text"] {
+  margin-bottom: 0.5em;
+  padding: 0.6em;
+  width: 100%;
+  background: white;
+  box-shadow: none;
+  border: none;
+  color: #5c4b51; }
+  .AddComment input[type="text"]::-webkit-input-placeholder {
+    font-style: italic;
+    color: #5c4b51; }
+  .AddComment input[type="text"]:-moz-placeholder {
+    /* Firefox 18- */
+    font-style: italic;
+    color: #5c4b51; }
+  .AddComment input[type="text"]::-moz-placeholder {
+    /* Firefox 19+ */
+    font-style: italic;
+    color: #5c4b51; }
+  .AddComment input[type="text"]:-ms-input-placeholder {
+    font-style: italic;
+    color: #5c4b51; }
+
+.AddComment-buttons {
+  text-align: center; }
+  .AddComment-buttons button {
+    padding: 0 1em;
+    border: none;
+    border-radius: 2px;
+    background: #f06060;
+    color: #fff;
+    cursor: pointer; }
+    .AddComment-buttons button[data-sentiment="pos"] {
+      background: #8cbeb2; }
+
+.Comments-thinking {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 2em 0;
+  background: rgba(92, 75, 81, 0.8);
+  color: #f06060;
+  text-align: center;
+  display: none; }
+
+.Examples {
+  list-style-type: none;
+  font-style: italic; }
+  .Examples i {
+    margin-right: 0.5em; }
+
+a {
+  color: #8cbeb2; }
+  a:hover, a:active {
+    color: #72afa1; }
+  a:visited {
+    color: #8cbeb2; }
+>>>>>>> integrating-firebase
