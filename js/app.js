@@ -508,6 +508,7 @@ var HeatCanvas=function(a){if(typeof(a)=="string"){this.canvas=document.getEleme
 		heatmapLayer: '',
 		updateMarkers: new Array(),
 		updateListener: '',
+		userMarker: '',
 		init: function() {
 			var self = this;
 
@@ -690,6 +691,47 @@ var HeatCanvas=function(a){if(typeof(a)=="string"){this.canvas=document.getEleme
 				$('.FillSection--info').addClass('is-hidden');
 				$('.Comments').addClass('is-open');
 			}
+
+			//when comments is open add user marker
+			if ($('.Comments').hasClass('is-open')) {
+				if (geoPosition.init()) {
+					geoPosition.getCurrentPosition(
+						function(p) {
+							//geoSuccess
+							app.userCoord = {
+								latitude: p.coords.latitude,
+								longitude: p.coords.longitude
+							}
+
+							//add marker for user's map position
+							var userIcon = L.AwesomeMarkers.icon({
+								icon: 'bubble2',
+								markerColor: 'cadetblue'
+							});
+
+							app.userMarker = L.marker([app.userCoord.latitude, app.userCoord.longitude], {icon: userIcon, draggable: true});
+
+							app.userMarker.addTo(app.map);
+
+							app.userMarker.on('dragend', function(e) {
+								var geoLocation = this.getLatLng();
+								app.userCoord.latitude = geoLocation.lat;
+								app.userCoord.longitude = geoLocation.lng;
+								console.log(app.userCoord);
+							});
+						},
+						function() {
+							//geoError
+							alert('Sorry we can not find you');
+						},
+						{
+							enableHighAccuracy: true
+						}
+					);
+				}
+			} else {
+				app.map.removeLayer(app.userMarker);
+			}
 		});
 
 		$('#settings').on('click', function() {
@@ -706,28 +748,8 @@ var HeatCanvas=function(a){if(typeof(a)=="string"){this.canvas=document.getEleme
 
 			$('.Comments').addClass('is-thinking');
 
-			if (geoPosition.init()) {
-				geoPosition.getCurrentPosition(
-					function(p) {
-						//geoSuccess
-						app.userCoord = {
-							latitude: p.coords.latitude,
-							longitude: p.coords.longitude
-						}
-
-						app.postUpdate(comment, sentiment, app.userCoord);
-					}, 
-					function() {
-						//geoError
-						alert('Sorry we can not find you');
-						$('.Comments').removeClass('is-thinking');
-					},
-					{
-						enableHighAccuracy: true
-					}
-				);
-			}
-		})
+			app.postUpdate(comment, sentiment, app.userCoord);
+		});
 	});
 
 }(jQuery));
