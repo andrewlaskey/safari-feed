@@ -1,4 +1,3 @@
-
 //https://github.com/leaflet-extras/leaflet-providers
 
 (function () {
@@ -514,7 +513,7 @@ var HeatCanvas=function(a){if(typeof(a)=="string"){this.canvas=document.getEleme
 
 			//Load the map
 			self.map = L.map('map');
-			L.tileLayer.provider('OpenStreetMap').addTo(self.map);
+			L.tileLayer.provider('OpenStreetMap.HOT').addTo(self.map);
 
 			var zooRef = new Firebase('https://safarifeed.firebaseio.com/zoos/0');
 
