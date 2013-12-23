@@ -76,6 +76,9 @@
 				},
 				DE: {
 					url: 'http://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png'
+				},
+				HOT: {
+					url: 'http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png'
 				}
 			}
 		},
