@@ -516,7 +516,7 @@ var HeatCanvas=function(a){if(typeof(a)=="string"){this.canvas=document.getEleme
 
 			//Load the map
 			self.map = L.map('map');
-			L.tileLayer.provider('OpenStreetMap.HOT').addTo(self.map);
+			L.tileLayer.provider('OpenStreetMap').addTo(self.map);
 
 			var zooRef = new Firebase('https://safarifeed.firebaseio.com/zoos/0');
 
@@ -525,7 +525,7 @@ var HeatCanvas=function(a){if(typeof(a)=="string"){this.canvas=document.getEleme
 				self.zoo = data.val();
 
 				//Position the map over Zoo
-				self.map.setView(self.zoo.center.split(','), 15);
+				self.map.setView(self.zoo.center.split(','), 16);
 			});
 
 			//Add the heatmap
