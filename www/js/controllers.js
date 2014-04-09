@@ -11,6 +11,7 @@ safariFeedControllers.controller('MapCtrl', ['$scope', '$firebase', 'mapService'
 
 		mapService.loadMap(value.center, value.bounds);
 		mapService.addHeatMap(value.updates);
+		mapService.addRecentUpdates(value.updates);
 	});
 	
   }]);

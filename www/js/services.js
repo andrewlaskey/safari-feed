@@ -4,7 +4,7 @@ safariFeedServices.
 
 service('mapService', function() {
 
-	var map;
+	var map, updateMarkers = [];
 
 	this.loadMap = function(zooCenter, zooBounds) {
 
@@ -54,6 +54,40 @@ service('mapService', function() {
 		});
 
 		L.control.layers(null, {'Historic Activity': heatmapLayer}, {collapsed: false}).addTo(map);
+	};
+
+	this.addRecentUpdates = function(updates) {
+		
+		//We only want updates from the last hour
+		var testTime = new Date();
+		testTime.setMinutes(testTime.getMinutes() - 60);
+
+		_.each(updates, function(value, key) {
+			if (value.time >= testTime.valueOf()) {
+
+				if (typeof value.loc.latitude !== 'undefined' &&
+					typeof value.loc.longitude !== 'undefined') {
+
+					var iconMarker = L.AwesomeMarkers.icon({
+						icon: 'smiley',
+						markerColor: 'green'
+					});
+
+					if (value.sentiment === 'neg') {
+						iconMarker = L.AwesomeMarkers.icon({
+							icon: 'sad',
+							markerColor: 'darkred'
+						});
+					}
+
+					var marker = L.marker([value.loc.latitude, value.loc.longitude], {icon: iconMarker})
+						.bindPopup('<strong>' + value.comment + '</strong><br /><i>' + moment(value.time).format("M/D/YY, h:mm a") + '</i>')
+					
+					updateMarkers.push(marker);
+					updateMarkers[updateMarkers.length - 1].addTo(map);
+				}
+			}
+		});
 	};
 
 });
