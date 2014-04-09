@@ -1,4 +1,4 @@
-var safariFeed = angular.module('safariFeed',['firebase', 'ngRoute', 'safariFeedControllers']);
+var safariFeed = angular.module('safariFeed',['firebase', 'ngRoute', 'safariFeedControllers', 'safariFeedServices']);
 
 safariFeed.config(['$routeProvider', function($routeProvider){
 	$routeProvider.
