@@ -2,26 +2,17 @@
 // Comments
 //
 
-.Comments {
+.comments {
 	position: fixed;
 	left: 0;
 	right: 0;
 	bottom: 0;
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
 	z-index: 9999;
 	background: $body-bg;
-	@include transform(translateY(100%));
-	@include transition(all 0.15s ease);
-
-	&.is-open {
-		@include transform(translateY(0%));		
-	}
-
-	&.is-thinking {
-
-		.Comments-thinking {
-			display: block;
-		}
-	}
+	text-align: center;
+	@include transition(all 0.25s ease);
 }
 
 .LastUpdate {
@@ -59,7 +50,7 @@
 	background: $body-bg;
 }
 
-.AddComment input[type="text"] {
+.comment-field {
 	margin-bottom: 0.5em;
 	padding: 0.6em;
 	width: 100%;
@@ -89,32 +80,21 @@
 	}
 }
 
-.AddComment-buttons {
-	text-align: center;
-	
-	button {
-		padding: 0 1em;
-		border: none;
-		border-radius: 2px;
-		background: $header-bg;
-		color: #fff;
-		cursor: pointer;
+.comment-button {
+	padding: 0 1em;
+	border: none;
+	border-radius: 2px;
+	background: $header-bg;
+	color: #fff;
+	cursor: pointer;
 
-		&[data-sentiment="pos"] {
-			background: $positive;
-		}
+	&.comment-button--positive {
+		background: $positive;
 	}
 }
 
 .Comments-thinking {
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	padding: 2em 0;
 	background: rgba($body-bg, 0.8);
 	color: $header-bg;
 	text-align: center;
-	display: none;
 }

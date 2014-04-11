@@ -2,25 +2,22 @@
 		  
 	<div id="map"></div>
 
-	<div class="Comments">
+	<div class="comments u-centerWrap">
+		<button class="comment-button u-textAlpha" ng-click="openComments()" ng-hide="isCommenting"><i class="icon-bubble"></i> Comment</button>
 
-		<!-- <div id="last-update" class="LastUpdate u-centerWrap">
-			<div class="LastUpdate-sentiment"><i class="icon-smiley u-textGamma"></i></div>
-			<div class="LastUpdate-comment">Update...</div>
-		</div> -->
-
-		<div id="comment" class="AddComment u-centerWrap">
-			<input id="jingle" type="text" value="" placeholder="Whats happening?" />
-			<input id="email" type="text" value="" placeholder="Email" /><!-- spam prevention -->
+		<div id="comment-form" ng-show="isCommentReady">
+			<input id="jingle" class="comment-field" type="text" value="" placeholder="Whats happening?" >
+			<input id="email" type="text" value="" placeholder="Email" ><!-- spam prevention -->
 			<div class="AddComment-buttons">
-				<button id="pos" name="pos" type="button" class="u-textAlpha js-postUpdate" data-sentiment="pos"><i class="icon-smiley"></i></button>
-				<button id="neg" name="neg" type="button" class="u-textAlpha js-postUpdate" data-sentiment="neg"><i class="icon-sad"></i></button>
+				<button id="pos" name="pos" type="button" class="comment-button comment-button--positive u-textAlpha" data-sentiment="pos"><i class="icon-smiley"></i></button>
+				<button id="neg" name="neg" type="button" class="comment-button u-textAlpha" data-sentiment="neg"><i class="icon-sad"></i></button>
 			</div>
 		</div>
 
-		<div id="comment-processing" class="Comments-thinking u-animateFlipContainer">
+		<div ng-show="isThinking" class="Comments-thinking u-animateFlipContainer">
 			<div class="u-animateFlip">
-				<i class="icon-bubble2 u-textAlpha"></i>
+				<i ng-show="isPosting" class="icon-bubble2 u-textAlpha"></i>
+				<i ng-show="isLocating" class="icon-location u-textAlpha"></i>
 			</div>
 		</div>
 

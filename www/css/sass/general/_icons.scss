@@ -1,10 +1,10 @@
 @font-face {
 	font-family: 'safari-feed';
-	src:url('../fonts/safari-feed.eot');
-	src:url('../fonts/safari-feed.eot?#iefix') format('embedded-opentype'),
-		url('../fonts/safari-feed.ttf') format('truetype'),
-		url('../fonts/safari-feed.woff') format('woff'),
-		url('../fonts/safari-feed.svg#safari-feed') format('svg');
+	src:url('../fonts/safari-feed.eot?rhu9hu');
+	src:url('../fonts/safari-feed.eot?#iefixrhu9hu') format('embedded-opentype'),
+		url('../fonts/safari-feed.woff?rhu9hu') format('woff'),
+		url('../fonts/safari-feed.ttf?rhu9hu') format('truetype'),
+		url('../fonts/safari-feed.svg?rhu9hu#safari-feed') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -23,27 +23,43 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
-.icon-sad:before,
-.glyphicon-sad:before {
-	content: "\e600";
+.icon-location:before,
+.glyphicon-location:before {
+	content: "\e606";
 }
-.icon-smiley:before,
-.glyphicon-smiley:before {
-	content: "\e601";
+.icon-map:before,
+.glyphicon-map:before {
+	content: "\e607";
+}
+.icon-bubble2:before,
+.glyphicon-bubble2:before {
+	content: "\e605";
 }
 .icon-bubble:before,
 .glyphicon-bubble:before {
 	content: "\e602";
 }
-.icon-cog:before,
-.glyphicon-cog:before {
-	content: "\e603";
+.icon-bubbles:before
+.glyphicon-bubbles:before, {
+	content: "\e608";
 }
-.icon-spinner:before,
-.glyphicon-spinner:before {
+.icon-spinner:before {
 	content: "\e604";
 }
-.icon-bubble2:before,
-.glyphicon-bubble2:before {
-	content: "\e605";
+.icon-cog:before {
+	content: "\e603";
+}
+.icon-earth:before {
+	content: "\e609";
+}
+.icon-link:before {
+	content: "\e60a";
+}
+.icon-smiley:before,
+.glpyhicon-smiley:before {
+	content: "\e601";
+}
+.icon-sad:before,
+.glyphicon-sad:before {
+	content: "\e600";
 }

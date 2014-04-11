@@ -4,7 +4,7 @@ safariFeedServices.
 
 service('mapService', function() {
 
-	var map, updateMarkers = [];
+	var map, updateMarkers = [], userCoord;
 
 	this.loadMap = function() {
 		map = L.map('map');
@@ -90,6 +90,37 @@ service('mapService', function() {
 				updateMarkers[updateMarkers.length - 1].addTo(map);
 			}
 		}
+	};
+
+	this.addUserMarker = function(userCoord) {
+		var userIcon = L.AwesomeMarkers.icon({
+			icon: 'bubble2',
+			markerColor: 'cadetblue'
+		});
+
+		var userMarker = L.marker(
+				[
+					userCoord.latitude,
+					userCoord.longitude
+				],
+				{
+					icon: userIcon,
+					draggable: true
+				}
+			);
+
+		userMarker.addTo(map);
+
+		userMarker.on('dragend', function(e) {
+			var geoLocation = this.getLatLng();
+			userCoord.latitude = geoLocation.lat;
+			userCoord.longitude = geoLocation.lng;
+			console.log(userCoord);
+		});
+	};
+
+	this.removeUserMarker = function() {
+		map.removeLayer(app.userMarker);
 	};
 
 });
