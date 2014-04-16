@@ -123,4 +123,13 @@ service('mapService', function() {
 		map.removeLayer(app.userMarker);
 	};
 
+	this.testBounds = function(loc, zooBounds) {
+		if (Math.abs(loc.latitude) >= Math.abs(zooBounds.latMax)) {return 0;}
+		if (Math.abs(loc.latitude) <= Math.abs(zooBounds.latMin)) {return 0;}
+		if (Math.abs(loc.longitude) >= Math.abs(zooBounds.longMax)) {return 0;}
+		if (Math.abs(loc.longitude) <= Math.abs(zooBounds.longMin)) {return 0;}
+
+		return 1;
+	};
+
 });

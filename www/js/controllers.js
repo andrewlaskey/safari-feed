@@ -28,7 +28,6 @@ safariFeedControllers.controller('MapCtrl', ['$scope', '$firebase', 'mapService'
 	});
 
 	$scope.openComments = function() {
-		console.log("openComments");
 		$scope.isCommenting = true;
 		$scope.isThinking = true;
 		$scope.isLocating = true;
@@ -46,6 +45,7 @@ safariFeedControllers.controller('MapCtrl', ['$scope', '$firebase', 'mapService'
 					$scope.isThinking = false;
 					$scope.isLocating = false;
 					$scope.isCommentReady = true;
+					$scope.loc = userCoord;
 					$scope.$apply();
 				},
 				function() {
@@ -57,7 +57,37 @@ safariFeedControllers.controller('MapCtrl', ['$scope', '$firebase', 'mapService'
 				}
 			);
 		}
+	}
 
+	$scope.addComment = function(sentiment) {
+		$scope.isCommentReady = false;
+		$scope.isThinking = true;
+		$scope.isPosting = true;
+
+		if (typeof $scope.email === 'undefined') {
+			if (mapService.testBounds($scope.loc, $scope.zoo.bounds)) {
+				$scope.updates
+					.$add({
+						comment: $scope.comment,
+						sentiment: sentiment,
+						loc: $scope.loc,
+						time: Date.now()
+					})
+					.then(function(ref){
+						$scope.isThinking = false;
+						$scope.isPosting = false;
+						$scope.isCommenting = false;
+					});
+
+				$scope.comment = '';
+				
+			} else {
+				alert('You need to be in the zoo to post an update.');
+				$scope.isCommentReady = true;
+				$scope.isThinking = false;
+				$scope.isPosting = false;
+			}
+		}
 	}
 	
   }]);
