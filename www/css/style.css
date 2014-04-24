@@ -418,7 +418,7 @@ small, .u-textMilli {
 .comment-field {
   margin-bottom: 0.5em;
   padding: 0.6em;
-  width: 100%;
+  width: 90%;
   background: white;
   box-shadow: none;
   border: none;
@@ -452,6 +452,16 @@ small, .u-textMilli {
   background: rgba(92, 75, 81, 0.8);
   color: #f06060;
   text-align: center; }
+
+.close-comments {
+  position: absolute;
+  top: 0.5em;
+  right: 0.5em;
+  border: none;
+  background: none;
+  color: white;
+  font-size: 1.2em;
+  cursor: pointer; }
 
 .Examples {
   list-style-type: none;

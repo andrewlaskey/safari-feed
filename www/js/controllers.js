@@ -77,6 +77,7 @@ safariFeedControllers.controller('MapCtrl', ['$scope', '$firebase', 'mapService'
 						$scope.isThinking = false;
 						$scope.isPosting = false;
 						$scope.isCommenting = false;
+						mapService.removeUserMarker();
 					});
 
 				$scope.comment = '';
@@ -88,6 +89,12 @@ safariFeedControllers.controller('MapCtrl', ['$scope', '$firebase', 'mapService'
 				$scope.isPosting = false;
 			}
 		}
+	}
+
+	$scope.closeComment = function() {
+		$scope.isCommenting = false;
+		$scope.isCommentReady = false;
+		mapService.removeUserMarker();
 	}
 	
   }]);

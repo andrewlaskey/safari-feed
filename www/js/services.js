@@ -4,7 +4,7 @@ safariFeedServices.
 
 service('mapService', function() {
 
-	var map, updateMarkers = [], userCoord;
+	var map, updateMarkers = [], userCoord, userMarker;
 
 	this.loadMap = function() {
 		map = L.map('map');
@@ -98,7 +98,7 @@ service('mapService', function() {
 			markerColor: 'cadetblue'
 		});
 
-		var userMarker = L.marker(
+		userMarker = L.marker(
 				[
 					userCoord.latitude,
 					userCoord.longitude
@@ -115,12 +115,11 @@ service('mapService', function() {
 			var geoLocation = this.getLatLng();
 			userCoord.latitude = geoLocation.lat;
 			userCoord.longitude = geoLocation.lng;
-			console.log(userCoord);
 		});
 	};
 
 	this.removeUserMarker = function() {
-		map.removeLayer(app.userMarker);
+		map.removeLayer(userMarker);
 	};
 
 	this.testBounds = function(loc, zooBounds) {
