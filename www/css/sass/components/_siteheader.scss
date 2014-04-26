@@ -38,5 +38,14 @@
 	color: $white;
 	font-size: 1.25em;
 	border: none;
-	cursor: pointer;
+	text-decoration: none;
+
+	&:hover,
+	&:visited {
+		color: $white;
+	}
+
+	&:active {
+		color: darken($white, 8%);
+	}
 }

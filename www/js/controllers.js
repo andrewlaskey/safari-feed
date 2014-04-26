@@ -98,3 +98,8 @@ safariFeedControllers.controller('MapCtrl', ['$scope', '$firebase', 'mapService'
 	}
 	
   }]);
+
+safariFeedControllers.controller('AboutCtrl', ['$scope',
+	function ($scope) {
+
+}]);
