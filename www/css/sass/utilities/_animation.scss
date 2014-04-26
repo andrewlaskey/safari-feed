@@ -20,3 +20,35 @@
 	backface-visibility: visible;
 	@include animation(flip 1s infinite);	
 }
+
+@include keyframes(slide-from-left) {
+	from {
+		@include transform(translateX(100%));
+	}
+
+	from {
+		@include transform(translateX(0%));
+	}
+}
+
+.u-animate-slide {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	@include transition(all 0.25s ease);
+}
+
+.u-animate-slide.ng-enter {
+		@include transform(translateX(100%));
+		z-index: 2;
+}
+
+.u-animate-slide.ng-enter.ng-enter-active {
+		@include transform(translateX(0%));
+}
+
+.u-animate-slide.ng-leave.ng-leave-active {
+		@include transform(translateX(-100%));
+}

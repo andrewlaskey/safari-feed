@@ -295,6 +295,66 @@ small, .u-textMilli {
   -moz-animation: flip 1s infinite;
   animation: flip 1s infinite; }
 
+@-webkit-keyframes slide-from-left {
+  from {
+    -webkit-transform: translateX(100%); }
+
+  from {
+    -webkit-transform: translateX(0%); } }
+
+@-moz-keyframes slide-from-left {
+  from {
+    -moz-transform: translateX(100%); }
+
+  from {
+    -moz-transform: translateX(0%); } }
+
+@-o-keyframes slide-from-left {
+  from {
+    -o-transform: translateX(100%); }
+
+  from {
+    -o-transform: translateX(0%); } }
+
+@keyframes slide-from-left {
+  from {
+    transform: translateX(100%); }
+
+  from {
+    transform: translateX(0%); } }
+
+.u-animate-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  -webkit-transition: all 0.25s ease;
+  -moz-transition: all 0.25s ease;
+  transition: all 0.25s ease; }
+
+.u-animate-slide.ng-enter {
+  -webkit-transform: translateX(100%);
+  -moz-transform: translateX(100%);
+  -ms-transform: translateX(100%);
+  -o-transform: translateX(100%);
+  transform: translateX(100%);
+  z-index: 2; }
+
+.u-animate-slide.ng-enter.ng-enter-active {
+  -webkit-transform: translateX(0%);
+  -moz-transform: translateX(0%);
+  -ms-transform: translateX(0%);
+  -o-transform: translateX(0%);
+  transform: translateX(0%); }
+
+.u-animate-slide.ng-leave.ng-leave-active {
+  -webkit-transform: translateX(-100%);
+  -moz-transform: translateX(-100%);
+  -ms-transform: translateX(-100%);
+  -o-transform: translateX(-100%);
+  transform: translateX(-100%); }
+
 .SiteHeader {
   position: fixed;
   top: 0;
@@ -340,15 +400,12 @@ small, .u-textMilli {
     color: #ebebeb; }
 
 .FillSection {
-  position: fixed;
+  position: absolute;
   top: 3rem;
   left: 0;
   right: 0;
   bottom: 0;
-  overflow: scroll;
-  -webkit-transition: all 0.35s ease;
-  -moz-transition: all 0.35s ease;
-  transition: all 0.35s ease; }
+  overflow: scroll; }
   .FillSection.FillSection--map {
     color: #5c4b51; }
   .FillSection.FillSection--info {
@@ -360,7 +417,7 @@ small, .u-textMilli {
     color: #5c4b51; }
 
 .comments {
-  position: fixed;
+  position: absolute;
   left: 0;
   right: 0;
   bottom: 0;
