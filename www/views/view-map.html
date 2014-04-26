@@ -6,7 +6,7 @@
     <div class="u-centerWrap">
       <button class="comment-button u-textAlpha" ng-click="openComments()" ng-hide="isCommenting"><i class="icon-bubble"></i> Comment</button>
 
-      <div id="comment-form" ng-show="isCommentReady" class="AddComment">
+      <div ng-show="isCommentReady" class="AddComment">
         <input class="comment-field" type="text" ng-model="comment" placeholder="Whats happening?" >
         <input id="email" type="text" ng-model="email" placeholder="Email" ><!-- spam prevention -->
         <div class="AddComment-buttons">
