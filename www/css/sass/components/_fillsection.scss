@@ -14,19 +14,11 @@
 
 	&.FillSection--map {
 		color: $dark; //fix color of marker bubbles
-
-		&.is-hidden {
-			@include transform(translateX(100%));
-		}
 	}
 
 	&.FillSection--info {
 		padding-top: 3rem;
 		background: #fff;
 		color: $dark;
-
-		&.is-hidden {
-			@include transform(translateX(-100%));
-		}
 	}
 }

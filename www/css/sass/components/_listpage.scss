@@ -1,0 +1,24 @@
+//
+// List
+//
+
+.update-list {
+	list-style-type: none;
+
+	li {
+		border-bottom: 1px solid $dark;
+
+		i {
+			float: left;
+			font-size: 2em;
+		}
+	}
+}
+
+.icon-neg {
+	color: $negative;
+}
+
+.icon-pos {
+	color: $positive;
+}

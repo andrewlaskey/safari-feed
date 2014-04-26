@@ -10,7 +10,7 @@ service('mapService', function() {
 		map = L.map('map');
 
 		L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-	    	attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+			attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 		}).addTo(map);
 	};
 
@@ -35,9 +35,9 @@ service('mapService', function() {
 
 		var heatmapLayer = new L.TileLayer.HeatCanvas({},{
 			'step': 0.5,
-	        'degree': HeatCanvas.LINEAR,
-	        'opacity': 0.7
-	    });
+			'degree': HeatCanvas.LINEAR,
+			'opacity': 0.7
+		});
 
 		_.each(updates, function(value, key){	
 			
@@ -131,4 +131,25 @@ service('mapService', function() {
 		return 1;
 	};
 
+})
+
+
+.filter('reverse', function() {
+	function toArray(list) {
+		var k, out = [];
+		if( list ) {
+			if( angular.isArray(list) ) {
+				out = list;
+			}
+			else if( typeof(list) === 'object' ) {
+				for (k in list) {
+					if (list.hasOwnProperty(k)) { out.push(list[k]); }
+				}
+			}
+		}
+		return out;
+	}
+	return function(items) {
+		return toArray(items).slice().reverse();
+	};
 });

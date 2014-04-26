@@ -53,11 +53,13 @@
   content: "\e60b"; }
 
 .icon-smiley:before,
-.glpyhicon-smiley:before {
+.glpyhicon-smiley:before,
+.icon-pos:before {
   content: "\e601"; }
 
 .icon-sad:before,
-.glyphicon-sad:before {
+.glyphicon-sad:before,
+.icon-neg:before {
   content: "\e600"; }
 
 * {
@@ -347,22 +349,10 @@ small, .u-textMilli {
   transition: all 0.35s ease; }
   .FillSection.FillSection--map {
     color: #5c4b51; }
-    .FillSection.FillSection--map.is-hidden {
-      -webkit-transform: translateX(100%);
-      -moz-transform: translateX(100%);
-      -ms-transform: translateX(100%);
-      -o-transform: translateX(100%);
-      transform: translateX(100%); }
   .FillSection.FillSection--info {
     padding-top: 3rem;
     background: #fff;
     color: #5c4b51; }
-    .FillSection.FillSection--info.is-hidden {
-      -webkit-transform: translateX(-100%);
-      -moz-transform: translateX(-100%);
-      -ms-transform: translateX(-100%);
-      -o-transform: translateX(-100%);
-      transform: translateX(-100%); }
 
 .comments {
   position: fixed;
@@ -378,44 +368,8 @@ small, .u-textMilli {
   -moz-transition: all 0.25s ease;
   transition: all 0.25s ease; }
 
-.LastUpdate {
-  position: absolute;
-  bottom: 116%;
-  left: 0;
-  right: 0;
-  padding: 0.4em 1em;
-  background: #5c4b51;
-  box-shadow: 0 1px 2px 1px rgba(68, 68, 68, 0.6);
-  *zoom: 1;
-  -webkit-transform: translateY(146%);
-  -moz-transform: translateY(146%);
-  -ms-transform: translateY(146%);
-  -o-transform: translateY(146%);
-  transform: translateY(146%);
-  -webkit-transition: all 0.35s ease;
-  -moz-transition: all 0.35s ease;
-  transition: all 0.35s ease;
-  z-index: -1; }
-  .LastUpdate:before, .LastUpdate:after {
-    content: " ";
-    display: table; }
-  .LastUpdate:after {
-    clear: both; }
-  .LastUpdate.is-open {
-    -webkit-transform: translateY(0%);
-    -moz-transform: translateY(0%);
-    -ms-transform: translateY(0%);
-    -o-transform: translateY(0%);
-    transform: translateY(0%); }
-
 #email {
   display: none; }
-
-.LastUpdate-sentiment {
-  float: left;
-  margin-right: 0.5em;
-  width: 2em;
-  text-align: center; }
 
 .AddComment {
   padding-top: 0.5em;
@@ -482,3 +436,17 @@ a {
     color: #72afa1; }
   a:visited {
     color: #8cbeb2; }
+
+.update-list {
+  list-style-type: none; }
+  .update-list li {
+    border-bottom: 1px solid #5c4b51; }
+    .update-list li i {
+      float: left;
+      font-size: 2em; }
+
+.icon-neg {
+  color: #f06060; }
+
+.icon-pos {
+  color: #8cbeb2; }

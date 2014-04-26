@@ -1,0 +1,11 @@
+<section class="FillSection FillSection--info">
+	<div class="u-centerWrap">
+    <ul class="update-list">
+      <li ng-repeat="update in updates | orderByPriority | reverse">
+        <i class="icon-{{ update.sentiment }}"></i>
+        <p>{{ update.comment}}</p>
+        <p ng-bind="formatTime(update.time)"></p>
+      </li>
+    </ul>
+  </div>
+</section>

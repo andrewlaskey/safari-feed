@@ -99,6 +99,15 @@ safariFeedControllers.controller('MapCtrl', ['$scope', '$firebase', 'mapService'
 	
   }]);
 
+safariFeedControllers.controller('ListCtrl', ['$scope', '$firebase',
+	function ($scope, $firebase) {
+		$scope.updates = $firebase(new Firebase('https://safarifeed.firebaseio.com/zoos/0/updates'));
+
+		$scope.formatTime = function(dbTime) {
+			return moment(dbTime).format("M/D/YY, h:mm a");
+		}
+}]);
+
 safariFeedControllers.controller('AboutCtrl', ['$scope',
 	function ($scope) {
 

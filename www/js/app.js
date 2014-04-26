@@ -11,6 +11,10 @@ safariFeed.config(['$routeProvider', function($routeProvider){
 			templateUrl: 'views/view-about.html',
 			controller: 'AboutCtrl'
 		}).
+		when('/list', {
+			templateUrl: 'views/view-list.html',
+			controller: 'ListCtrl'
+		}).
 		otherwise({
 			redirectTo: '/'
 		});
