@@ -53,7 +53,7 @@
   content: "\e60b"; }
 
 .icon-smiley:before,
-.glpyhicon-smiley:before,
+.glyphicon-smiley:before,
 .icon-pos:before {
   content: "\e601"; }
 
@@ -501,3 +501,12 @@ a {
     color: #46393d; }
   .update-permalink:visited {
     color: #5c4b51; }
+
+#detail-map {
+  height: 300px; }
+
+.details {
+  padding-top: 1em;
+  border-top: 1px solid #5c4b51; }
+  .details h2 {
+    margin-bottom: 0.5rem; }

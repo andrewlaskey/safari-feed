@@ -6,8 +6,8 @@ service('mapService', function() {
 
 	var map, updateMarkers = [], userCoord, userMarker;
 
-	this.loadMap = function() {
-		map = L.map('map');
+	this.loadMap = function(mapID) {
+		map = L.map(mapID);
 
 		L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
 			attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -83,8 +83,8 @@ service('mapService', function() {
 				}
 
 				var marker = L.marker([update.loc.latitude, update.loc.longitude], {icon: iconMarker})
-					.bindPopup('<strong>' + update.comment + '</strong><br /><i>' + moment(update.time).format("M/D/YY, h:mm a") + '</i>')
-				console.log();
+					.bindPopup('<strong>' + update.comment + '</strong><br /><i>' + moment(update.time).format("M/D/YY, h:mm a") + '</i>');
+
 				updateMarkers.push(marker);
 				
 				updateMarkers[updateMarkers.length - 1].addTo(map);
@@ -121,6 +121,32 @@ service('mapService', function() {
 	this.removeUserMarker = function() {
 		map.removeLayer(userMarker);
 	};
+
+	this.centerOnLocation = function(lat, lon) {
+		map.setView([lat,lon], 17);
+	};
+
+	this.addSingleMarker = function(update) {
+		if (typeof update.loc.latitude !== 'undefined' &&
+			typeof update.loc.longitude !== 'undefined') {
+
+				var iconMarker = L.AwesomeMarkers.icon({
+					icon: 'smiley',
+					markerColor: 'green'
+				});
+
+				if (update.sentiment === 'neg') {
+					iconMarker = L.AwesomeMarkers.icon({
+						icon: 'sad',
+						markerColor: 'darkred'
+					});
+				}
+
+				var marker = L.marker([update.loc.latitude, update.loc.longitude], {icon: iconMarker});
+
+				marker.addTo(map);
+			}
+	}
 
 	this.testBounds = function(loc, zooBounds) {
 		if (Math.abs(loc.latitude) >= Math.abs(zooBounds.latMax)) {return 0;}

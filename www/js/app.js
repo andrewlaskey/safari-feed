@@ -15,6 +15,10 @@ safariFeed.config(['$routeProvider', function($routeProvider){
 			templateUrl: 'views/view-list.html',
 			controller: 'ListCtrl'
 		}).
+		when('/update/:updateID', {
+			templateUrl: 'views/view-detail.html',
+			controller: 'DetailCtrl'
+		}).
 		otherwise({
 			redirectTo: '/'
 		});

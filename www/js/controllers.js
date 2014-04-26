@@ -9,7 +9,7 @@ safariFeedControllers.controller('MapCtrl', ['$scope', '$firebase', 'mapService'
 	$scope.isPosting = false;
 	$scope.isCommentReady = false;
 
-  	mapService.loadMap();
+  	mapService.loadMap('map');
 
     //Get Zoo Data
 	$scope.zoo = $firebase(new Firebase('https://safarifeed.firebaseio.com/zoos/0'));
@@ -104,7 +104,24 @@ safariFeedControllers.controller('ListCtrl', ['$scope', '$firebase',
 		$scope.updates = $firebase(new Firebase('https://safarifeed.firebaseio.com/zoos/0/updates'));
 
 		$scope.formatTime = function(dbTime) {
-			return moment(dbTime).format("M/D/YY, h:mm a");
+			return moment(dbTime).format("M/D/YY, h:mm A");
+		}
+}]);
+
+safariFeedControllers.controller('DetailCtrl', ['$scope', '$firebase', '$routeParams', 'mapService',
+	function ($scope, $firebase, $routeParams, mapService) {
+
+		mapService.loadMap('detail-map');
+
+		$scope.update = $firebase(new Firebase('https://safarifeed.firebaseio.com/zoos/0/updates/' + $routeParams.updateID));
+
+		$scope.update.$on('loaded', function(value) {
+			mapService.centerOnLocation(value.loc.latitude, value.loc.longitude);
+			mapService.addSingleMarker(value);
+		});
+		
+		$scope.formatTime = function(dbTime) {
+			return moment(dbTime).format("M/D/YY, h:mm A");
 		}
 }]);
 

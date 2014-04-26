@@ -8,7 +8,7 @@
         <div class="update-info">
           <p>{{ update.comment}}</p>
           <p class="update-time u-textMilli" ng-bind="formatTime(update.time)"></p>
-          <a class="update-permalink" href=""><i class="icon-link"></i></a>
+          <a class="update-permalink" href="#update/{{ update.$id }}"><i class="icon-link"></i></a>
         </div>
       </li>
     </ul>
