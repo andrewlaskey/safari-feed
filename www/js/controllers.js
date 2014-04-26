@@ -23,8 +23,7 @@ safariFeedControllers.controller('MapCtrl', ['$scope', '$firebase', 'mapService'
 	});
 
 	$scope.updates.$on('child_added', function(value) {
-		var blob = value.snapshot.value;
-		mapService.addUpdate(blob);
+		mapService.addUpdate(value.snapshot.value, value.snapshot.name);
 	});
 
 	$scope.openComments = function() {

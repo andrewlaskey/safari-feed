@@ -59,7 +59,7 @@ service('mapService', function() {
 		L.control.layers(null, {'Historic Activity': heatmapLayer}, {collapsed: false}).addTo(map);
 	};
 
-	this.addUpdate = function(update) {
+	this.addUpdate = function(update, updateID) {
 
 		//We only want updates from the last hour
 		var testTime = new Date();
@@ -83,7 +83,8 @@ service('mapService', function() {
 				}
 
 				var marker = L.marker([update.loc.latitude, update.loc.longitude], {icon: iconMarker})
-					.bindPopup('<strong>' + update.comment + '</strong><br /><i>' + moment(update.time).format("M/D/YY, h:mm a") + '</i>');
+					.bindPopup('<a href="#update/' + updateID + '"><strong>' + update.comment +'</strong></a><br>' +
+						'<i>' + moment(update.time).format("M/D/YY, h:mm a") + '</i>');
 
 				updateMarkers.push(marker);
 				
