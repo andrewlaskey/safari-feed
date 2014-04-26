@@ -247,6 +247,8 @@ small, .u-textMilli {
   padding-right: 1em;
   width: 100%;
   max-width: 42em; }
+  .u-centerWrap.u-centerWrap--no-pad {
+    padding: 0; }
 
 .u-positive {
   color: #8cbeb2; }
@@ -353,6 +355,9 @@ small, .u-textMilli {
     padding-top: 3rem;
     background: #fff;
     color: #5c4b51; }
+  .FillSection.FillSection--list {
+    background: #fff;
+    color: #5c4b51; }
 
 .comments {
   position: fixed;
@@ -440,13 +445,59 @@ a {
 .update-list {
   list-style-type: none; }
   .update-list li {
-    border-bottom: 1px solid #5c4b51; }
-    .update-list li i {
-      float: left;
-      font-size: 2em; }
+    position: relative;
+    border-bottom: 1px solid #5c4b51;
+    *zoom: 1; }
+    .update-list li:before, .update-list li:after {
+      content: " ";
+      display: table; }
+    .update-list li:after {
+      clear: both; }
+    .update-list li:first-child {
+      border-top: 1px solid #5c4b51; }
 
-.icon-neg {
-  color: #f06060; }
+.update-sentiment {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20%;
+  bottom: 0;
+  text-align: center;
+  color: white; }
+  .update-sentiment.update-sentiment--pos {
+    background: #8cbeb2; }
+  .update-sentiment.update-sentiment--neg {
+    background: #f06060; }
+  .update-sentiment i {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    height: 2rem;
+    font-size: 2rem; }
 
-.icon-pos {
-  color: #8cbeb2; }
+.update-info {
+  float: left;
+  margin-left: 20%;
+  padding: 0.5rem 1rem; }
+  .update-info p {
+    margin-bottom: 0.5rem; }
+  .update-info .update-time {
+    margin-bottom: 0; }
+
+.update-time {
+  font-style: italic; }
+
+.update-permalink {
+  position: absolute;
+  right: 0.5rem;
+  bottom: 0.5rem;
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: #5c4b51; }
+  .update-permalink:hover, .update-permalink:active {
+    color: #46393d; }
+  .update-permalink:visited {
+    color: #5c4b51; }

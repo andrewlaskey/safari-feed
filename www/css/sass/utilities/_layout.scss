@@ -9,4 +9,8 @@
 	padding-right: 1em;
 	width: 100%;
 	max-width: 42em;
+
+	&.u-centerWrap--no-pad {
+		padding: 0;
+	}
 }

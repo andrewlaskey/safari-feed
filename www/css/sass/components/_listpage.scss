@@ -6,19 +6,77 @@
 	list-style-type: none;
 
 	li {
+		position: relative;
 		border-bottom: 1px solid $dark;
+		@include clearfix;
 
-		i {
-			float: left;
-			font-size: 2em;
+		&:first-child {
+			border-top: 1px solid $dark;
 		}
 	}
 }
 
-.icon-neg {
-	color: $negative;
+.update-sentiment {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 20%;
+	bottom: 0;
+	text-align: center;
+	color: $white;
+
+	&.update-sentiment--pos {
+		background: $positive;
+	}
+
+	&.update-sentiment--neg {
+		background: $negative;
+	}
+
+	i {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		margin: auto;
+		height: 2rem;
+		font-size: 2rem;
+	}
 }
 
-.icon-pos {
-	color: $positive;
+.update-info {
+	float: left;
+	margin-left: 20%;
+	padding: 0.5rem 1rem;
+
+	p {
+		margin-bottom: 0.5rem;
+	}
+
+	.update-time {
+		margin-bottom: 0;
+	}
+}
+
+.update-time {
+	font-style: italic;
+}
+
+.update-permalink {
+	position: absolute;
+	right: 0.5rem;
+	bottom: 0.5rem;
+	font-size: 1.2rem;
+	text-decoration: none;
+	color: $dark;
+
+	&:hover,
+	&:active {
+		color: darken($dark, 8%);
+	}
+
+	&:visited {
+		color: $dark;
+	}
 }
