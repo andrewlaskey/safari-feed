@@ -2,31 +2,26 @@
 // Fill Section
 //
 
-.FillSection {
-	position: fixed;
+.fill-section {
+	position: absolute;
 	top: $header-height;
 	left: 0;
 	right: 0;
 	bottom: 0;
 	overflow: scroll;
 
-	@include transition(all 0.35s ease);
-
-	&.FillSection--map {
+	&.fill-section--map {
 		color: $dark; //fix color of marker bubbles
-
-		&.is-hidden {
-			@include transform(translateX(100%));
-		}
 	}
 
-	&.FillSection--info {
+	&.fill-section--info {
 		padding-top: 3rem;
 		background: #fff;
 		color: $dark;
+	}
 
-		&.is-hidden {
-			@include transform(translateX(-100%));
-		}
+	&.fill-section--list {
+		background: #fff;
+		color: $dark;
 	}
 }
