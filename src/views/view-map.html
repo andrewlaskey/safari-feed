@@ -1,0 +1,28 @@
+<section class="fill-section fill-section--map">
+      
+  <div id="map"></div>
+
+  <div class="comments">
+    <div class="u-center-wrap">
+      <button class="comment-button u-text-alpha" ng-click="openComments()" ng-hide="isCommenting"><i class="icon-bubble"></i> Comment</button>
+
+      <div ng-show="isCommentReady">
+        <input class="comment-field" type="text" ng-model="comment" placeholder="Whats happening?" >
+        <input id="email" type="text" ng-model="email" placeholder="Email" ><!-- spam prevention -->
+        <div class="add-comment-buttons">
+          <button type="button" class="comment-button comment-button--positive u-text-alpha" ng-click="add-comment('pos')"><i class="icon-smiley"></i></button>
+          <button type="button" class="comment-button u-text-alpha" ng-click="add-comment('neg')"><i class="icon-sad"></i></button>
+        </div>
+        <button type="button" class="close-comments" ng-click="closeComment()">&#215;</button>
+      </div>
+
+      <div ng-show="isThinking" class="comments-thinking u-animate-flip-container">
+        <div class="u-animate-flip">
+          <i ng-show="isPosting" class="icon-bubble2 u-text-alpha"></i>
+          <i ng-show="isLocating" class="icon-location u-text-alpha"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
