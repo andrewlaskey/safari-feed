@@ -234,7 +234,7 @@ small, .u-text-milli {
   padding-right: 1em;
   width: 100%;
   max-width: 42em; }
-  .u-center-wrap.u-centerWrap--no-pad {
+  .u-center-wrap.u-center-wrap--no-pad {
     padding: 0; }
 
 .u-positive {
@@ -381,11 +381,6 @@ keyframes slide-from-left from {
 
 #email {
   display: none; }
-
-.add-comment {
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
-  background: #5C4B51; }
 
 .comment-field {
   margin-bottom: 0.5em;
