@@ -9,10 +9,6 @@
 		position: relative;
 		border-bottom: 1px solid $dark;
 		@include clearfix;
-
-		&:first-child {
-			border-top: 1px solid $dark;
-		}
 	}
 }
 
