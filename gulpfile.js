@@ -19,8 +19,8 @@ var paths = {
     './app/_bower_components/momentjs/min/moment.min.js',
     './app/_bower_components/fastclick/lib/fastclick.js',
     './app/_bower_components/underscore/underscore.js',
-    './www/js/geoposition.js',
-    './www/js/heatcanvas.js',
+    './www/js/libs/geoposition.js',
+    './www/js/libs/heatcanvas.js',
     './www/js/app.js',
     './www/js/controllers.js',
     './www/js/services.js'
@@ -46,7 +46,7 @@ gulp.task('scripts', function() {
     .pipe(gulp.dest('./www/js/'))
     .pipe(uglify())
     .pipe(rename({ extname: '.min.js' }))
-    .pipe(gulp.dest('./www/js/'));
+    .pipe(gulp.dest('./www/js/build/'));
 });
 
 gulp.task('reload', function() {
