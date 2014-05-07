@@ -12,11 +12,11 @@
 	}
 }
 
-.u-animateFlipContainer {
+.u-animate-flip-container {
 	perspective: 300px;
 }
 
-.u-animateFlip {
+.u-animate-flip {
 	backface-visibility: visible;
 	animation: flip 1s infinite;	
 }

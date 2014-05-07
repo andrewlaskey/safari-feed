@@ -1,8 +1,8 @@
 //
-// SiteHeader
+// site-header
 //
 
-.SiteHeader {
+.site-header {
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -15,7 +15,7 @@
 	@include clearfix;
 }
 
-.SiteHeader-name {
+.site-header-name {
 	margin: 0;
 	float: left;
 	color: $white;
@@ -27,7 +27,7 @@
 	}
 }
 
-.SiteHeader-button {
+.site-header-button {
 	float: right;
 	margin-left: 3px;
 	height: 100%;

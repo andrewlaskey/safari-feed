@@ -2,7 +2,7 @@
 // Fill Section
 //
 
-.FillSection {
+.fill-section {
 	position: absolute;
 	top: $header-height;
 	left: 0;
@@ -10,17 +10,17 @@
 	bottom: 0;
 	overflow: scroll;
 
-	&.FillSection--map {
+	&.fill-section--map {
 		color: $dark; //fix color of marker bubbles
 	}
 
-	&.FillSection--info {
+	&.fill-section--info {
 		padding-top: 3rem;
 		background: #fff;
 		color: $dark;
 	}
 
-	&.FillSection--list {
+	&.fill-section--list {
 		background: #fff;
 		color: $dark;
 	}
