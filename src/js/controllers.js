@@ -3,8 +3,8 @@ var firebasePath = 'https://safarifeed.firebaseio.com';
 
 var safariFeedControllers = angular.module('safariFeedControllers', []);
  
-safariFeedControllers.controller('MapCtrl', ['$scope', '$firebase', 'mapService',
-  function ($scope, $firebase, mapService) {
+safariFeedControllers.controller('MapCtrl', ['$scope', '$firebase', '$sanitize', 'mapService',
+  function ($scope, $firebase, $sanitize, mapService) {
 
   	$scope.isCommenting = false;
 	$scope.isThinking = false;
@@ -70,7 +70,7 @@ safariFeedControllers.controller('MapCtrl', ['$scope', '$firebase', 'mapService'
 			if (mapService.testBounds($scope.loc, $scope.zoo.bounds)) {
 				$scope.updates
 					.$add({
-						comment: $scope.comment,
+						comment: $sanitize($scope.comment),
 						sentiment: sentiment,
 						loc: $scope.loc,
 						time: Date.now()
@@ -101,8 +101,8 @@ safariFeedControllers.controller('MapCtrl', ['$scope', '$firebase', 'mapService'
 	
   }]);
 
-safariFeedControllers.controller('ListCtrl', ['$scope', '$firebase',
-	function ($scope, $firebase) {
+safariFeedControllers.controller('ListCtrl', ['$scope', '$firebase', '$sanitize',
+	function ($scope, $firebase, $sanitize) {
 		$scope.updates = $firebase(new Firebase(firebasePath + '/zoos/0/updates'));
 
 		$scope.formatTime = function(dbTime) {
@@ -110,8 +110,8 @@ safariFeedControllers.controller('ListCtrl', ['$scope', '$firebase',
 		}
 }]);
 
-safariFeedControllers.controller('DetailCtrl', ['$scope', '$firebase', '$routeParams', 'mapService',
-	function ($scope, $firebase, $routeParams, mapService) {
+safariFeedControllers.controller('DetailCtrl', ['$scope', '$firebase', '$routeParams', '$sanitize','mapService',
+	function ($scope, $firebase, $routeParams, $sanitize, mapService) {
 
 		mapService.loadMap('detail-map');
 
