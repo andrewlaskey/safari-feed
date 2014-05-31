@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html ng-app="safariFeed">
+	<head>
+		<link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>Safari Feed</title>
+		<meta name="author" content="Andrew Laskey">
+		<meta name="description" content="Real-time updates on what is happening in the San Diego Zoo">
+		<link rel="shortcut icon" href="favicon.ico" type="image/vnd.microsoft.icon">
+		<link rel="stylesheet" href="css/style.min.css" type="text/css">
+		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.css" />
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+			ga('create', 'UA-43132562-1', 'safarifeed.com');
+			ga('send', 'pageview');
+
+		</script>
+	</head>
+	<body>
+		<header class="site-header">
+			<h1 class="site-header-name">Safari Feed</h1>
+			<a class="site-header-button" href="#about"><i class="icon-cog"></i></a>
+			<a class="site-header-button" href="#"><i class="icon-earth"></i></a>
+			<a class="site-header-button" href="#list"><i class="icon-list"></i></a>
+		</header>
+
+		<div ng-view class="u-animate-slide"></div>
+
+		<script type="text/js-worker">
+		/**
+		 * Copyright 2010 Sun Ning <classicning@gmail.com>
+		 *
+		 * Permission is hereby granted, free of charge, to any person obtaining a copy
+		 * of this software and associated documentation files (the "Software"), to deal
+		 * in the Software without restriction, including without limitation the rights
+		 * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+		 * copies of the Software, and to permit persons to whom the Software is
+		 * furnished to do so, subject to the following conditions:
+		 *
+		 * The above copyright notice and this permission notice shall be included in all
+		 * copies or substantial portions of the Software.
+		 *
+		 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+		 * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+		 * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+		 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+		 * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+		 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+		 * SOFTWARE.
+		 */
+		onmessage=function(a){calc(a.data)};function calc(b){value=b.value||{};degree=b.degree||1;for(var f in b.data){var c=b.data[f];var d=Math.floor(Math.pow((c/b.step),1/degree));var j=Math.floor(f%b.width);var g=Math.floor(f/b.width);for(var i=j-d;i<j+d;i+=1){if(i<0||i>b.width){continue}for(var h=g-d;h<g+d;h+=1){if(h<0||h>b.height){continue}var e=Math.sqrt(Math.pow((i-j),2)+Math.pow((h-g),2));if(e>d){continue}else{var k=c-b.step*Math.pow(e,degree);var a=i+h*b.width;if(value[a]){value[a]=value[a]+k}else{value[a]=k}}}}}postMessage({value:value})};
+		</script>
+
+		<script src='https://cdn.firebase.com/v0/firebase.js'></script>
+		<script src="js/build/scripts.min.js"></script>
+	</body>
+</html>
