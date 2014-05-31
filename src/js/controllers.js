@@ -1,5 +1,5 @@
-//var firebasePath = 'https://safarifeed.firebaseio.com';
-var firebasePath = 'https://safarifeedtest.firebaseio.com';
+var firebasePath = 'https://safarifeed.firebaseio.com';
+//var firebasePath = 'https://safarifeedtest.firebaseio.com';
 
 var safariFeedControllers = angular.module('safariFeedControllers', []);
  
