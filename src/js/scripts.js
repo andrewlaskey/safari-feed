@@ -236,6 +236,21 @@ v="$$ngAnimateCSS3Data",U="ng-animate-start",N="ng-animate-active",C={},V=0,Q=[]
 a.animationDuration)},enter:function(b,c){return a(b,"ng-enter",c)},leave:function(b,c){return a(b,"ng-leave",c)},move:function(b,c){return a(b,"ng-move",c)},beforeAddClass:function(a,c,d){if(a=q(a,b(c,"-add")))return m(d),a;d()},addClass:function(a,c,d){return J(a,b(c,"-add"),d)},beforeRemoveClass:function(a,c,d){if(a=q(a,b(c,"-remove")))return m(d),a;d()},removeClass:function(a,c,d){return J(a,b(c,"-remove"),d)}}}])}])})(window,window.angular);
 //# sourceMappingURL=angular-animate.min.js.map
 
+/*
+ AngularJS v1.2.1
+ (c) 2010-2012 Google, Inc. http://angularjs.org
+ License: MIT
+*/
+(function(m,g,n){'use strict';function h(a){var d={};a=a.split(",");var c;for(c=0;c<a.length;c++)d[a[c]]=!0;return d}function D(a,d){function c(a,b,c,f){b=g.lowercase(b);if(r[b])for(;e.last()&&s[e.last()];)k("",e.last());t[b]&&e.last()==b&&k("",b);(f=u[b]||!!f)||e.push(b);var l={};c.replace(E,function(a,b,d,c,e){l[b]=p(d||c||e||"")});d.start&&d.start(b,l,f)}function k(a,b){var c=0,k;if(b=g.lowercase(b))for(c=e.length-1;0<=c&&e[c]!=b;c--);if(0<=c){for(k=e.length-1;k>=c;k--)d.end&&d.end(e[k]);e.length=
+c}}var b,f,e=[],l=a;for(e.last=function(){return e[e.length-1]};a;){f=!0;if(e.last()&&v[e.last()])a=a.replace(RegExp("(.*)<\\s*\\/\\s*"+e.last()+"[^>]*>","i"),function(a,b){b=b.replace(F,"$1").replace(G,"$1");d.chars&&d.chars(p(b));return""}),k("",e.last());else{if(0===a.indexOf("\x3c!--"))b=a.indexOf("--",4),0<=b&&a.lastIndexOf("--\x3e",b)===b&&(d.comment&&d.comment(a.substring(4,b)),a=a.substring(b+3),f=!1);else if(w.test(a)){if(b=a.match(w))a=a.replace(b[0],""),f=!1}else if(H.test(a)){if(b=a.match(x))a=
+a.substring(b[0].length),b[0].replace(x,k),f=!1}else I.test(a)&&(b=a.match(y))&&(a=a.substring(b[0].length),b[0].replace(y,c),f=!1);f&&(b=a.indexOf("<"),f=0>b?a:a.substring(0,b),a=0>b?"":a.substring(b),d.chars&&d.chars(p(f)))}if(a==l)throw J("badparse",a);l=a}k()}function p(a){q.innerHTML=a.replace(/</g,"&lt;");return q.innerText||q.textContent||""}function z(a){return a.replace(/&/g,"&amp;").replace(K,function(a){return"&#"+a.charCodeAt(0)+";"}).replace(/</g,"&lt;").replace(/>/g,"&gt;")}function A(a){var d=
+!1,c=g.bind(a,a.push);return{start:function(a,b,f){a=g.lowercase(a);!d&&v[a]&&(d=a);d||!0!==B[a]||(c("<"),c(a),g.forEach(b,function(a,b){var d=g.lowercase(b);!0!==L[d]||!0===C[d]&&!a.match(M)||(c(" "),c(b),c('="'),c(z(a)),c('"'))}),c(f?"/>":">"))},end:function(a){a=g.lowercase(a);d||!0!==B[a]||(c("</"),c(a),c(">"));a==d&&(d=!1)},chars:function(a){d||c(z(a))}}}var J=g.$$minErr("$sanitize"),y=/^<\s*([\w:-]+)((?:\s+[\w:-]+(?:\s*=\s*(?:(?:"[^"]*")|(?:'[^']*')|[^>\s]+))?)*)\s*(\/?)\s*>/,x=/^<\s*\/\s*([\w:-]+)[^>]*>/,
+E=/([\w:-]+)(?:\s*=\s*(?:(?:"((?:[^"])*)")|(?:'((?:[^'])*)')|([^>\s]+)))?/g,I=/^</,H=/^<\s*\//,F=/\x3c!--(.*?)--\x3e/g,w=/<!DOCTYPE([^>]*?)>/i,G=/<!\[CDATA\[(.*?)]]\x3e/g,M=/^((ftp|https?):\/\/|mailto:|tel:|#)/i,K=/([^\#-~| |!])/g,u=h("area,br,col,hr,img,wbr");m=h("colgroup,dd,dt,li,p,tbody,td,tfoot,th,thead,tr");n=h("rp,rt");var t=g.extend({},n,m),r=g.extend({},m,h("address,article,aside,blockquote,caption,center,del,dir,div,dl,figure,figcaption,footer,h1,h2,h3,h4,h5,h6,header,hgroup,hr,ins,map,menu,nav,ol,pre,script,section,table,ul")),
+s=g.extend({},n,h("a,abbr,acronym,b,bdi,bdo,big,br,cite,code,del,dfn,em,font,i,img,ins,kbd,label,map,mark,q,ruby,rp,rt,s,samp,small,span,strike,strong,sub,sup,time,tt,u,var")),v=h("script,style"),B=g.extend({},u,r,s,t),C=h("background,cite,href,longdesc,src,usemap"),L=g.extend({},C,h("abbr,align,alt,axis,bgcolor,border,cellpadding,cellspacing,class,clear,color,cols,colspan,compact,coords,dir,face,headers,height,hreflang,hspace,ismap,lang,language,nohref,nowrap,rel,rev,rows,rowspan,rules,scope,scrolling,shape,span,start,summary,target,title,type,valign,value,vspace,width")),
+q=document.createElement("pre");g.module("ngSanitize",[]).value("$sanitize",function(a){var d=[];D(a,A(d));return d.join("")});g.module("ngSanitize").filter("linky",function(){var a=/((ftp|https?):\/\/|(mailto:)?[A-Za-z0-9._%+-]+@)\S*[^\s.;,(){}<>]/,d=/^mailto:/;return function(c,k){if(!c)return c;var b,f=c,e=[],l=A(e),h,m,n={};g.isDefined(k)&&(n.target=k);for(;b=f.match(a);)h=b[0],b[2]==b[3]&&(h="mailto:"+h),m=b.index,l.chars(f.substr(0,m)),n.href=h,l.start("a",n),l.chars(b[0].replace(d,"")),l.end("a"),
+f=f.substring(m+b[0].length);l.chars(f);return e.join("")}})})(window,window.angular);
+//# sourceMappingURL=angular-sanitize.min.js.map
+
 "use strict";!function(){var a,b;angular.module("firebase",[]).value("Firebase",Firebase),angular.module("firebase").factory("$firebase",["$q","$parse","$timeout",function(b,c,d){return function(e){var f=new a(b,c,d,e);return f.construct()}}]),angular.module("firebase").filter("orderByPriority",function(){return function(a){var b=[];if(a)if(a.$getIndex&&"function"==typeof a.$getIndex){var c=a.$getIndex();if(c.length>0)for(var d=0;d<c.length;d++){var e=a[c[d]];e&&(e.$id=c[d],b.push(e))}}else angular.isArray(a)?b=a.slice(0):angular.isObject(a)&&angular.forEach(a,function(a){b.push(a)});return b}}),Array.prototype.indexOf||(Array.prototype.indexOf=function(a,b){if(void 0===this||null===this)throw new TypeError("'this' is null or not defined");var c=this.length>>>0;for(b=+b||0,1/0===Math.abs(b)&&(b=0),0>b&&(b+=c,0>b&&(b=0));c>b;b++)if(this[b]===a)return b;return-1}),a=function(a,b,c,d){if(this._q=a,this._parse=b,this._timeout=c,this._bound=!1,this._loaded=!1,this._index=[],this._on={value:[],change:[],loaded:[],child_added:[],child_moved:[],child_changed:[],child_removed:[]},"string"==typeof d)throw new Error("Please provide a Firebase reference instead of a URL, eg: new Firebase(url)");this._fRef=d},a.prototype={construct:function(){var b=this,c={};return c.$id=b._fRef.ref().name(),c.$bind=function(a,c,d){return b._bind(a,c,d)},c.$add=function(a){function c(a){a?e.reject(a):e.resolve(d)}var d,e=b._q.defer();return d="object"==typeof a?b._fRef.ref().push(b._parseObject(a),c):b._fRef.ref().push(a,c),e.promise},c.$save=function(a){function c(a){a?d.reject(a):d.resolve()}var d=b._q.defer();if(a){var e=b._parseObject(b._object[a]);b._fRef.ref().child(a).set(e,c)}else b._fRef.ref().set(b._parseObject(b._object),c);return d.promise},c.$set=function(a){var c=b._q.defer();return b._fRef.ref().set(b._parseObject(a),function(a){a?c.reject(a):c.resolve()}),c.promise},c.$update=function(a){var c=b._q.defer();return b._fRef.ref().update(b._parseObject(a),function(a){a?c.reject(a):c.resolve()}),c.promise},c.$transaction=function(a,c){var d=b._q.defer();return b._fRef.ref().transaction(a,function(a,b,c){a?d.reject(a):d.resolve(b?c:null)},c),d.promise},c.$remove=function(a){function c(a){a?d.reject(a):d.resolve()}var d=b._q.defer();return a?b._fRef.ref().child(a).remove(c):b._fRef.ref().remove(c),d.promise},c.$child=function(c){var d=new a(b._q,b._parse,b._timeout,b._fRef.ref().child(c));return d.construct()},c.$on=function(a,d){if(!b._on.hasOwnProperty(a))throw new Error("Invalid event type "+a+" specified");return b._sendInitEvent(a,d),"loaded"===a&&this._loaded||b._on[a].push(d),c},c.$off=function(a,c){if(b._on.hasOwnProperty(a))if(c){var d=b._on[a].indexOf(c);-1!==d&&b._on[a].splice(d,1)}else b._on[a]=[];else b._fRef.off()},c.$auth=function(a){var c=b._q.defer();return b._fRef.auth(a,function(a,b){null!==a?c.reject(a):c.resolve(b)},function(a){c.reject(a)}),c.promise},c.$getIndex=function(){return angular.copy(b._index)},c.$getRef=function(){return b._fRef.ref()},b._object=c,b._getInitialValue(),b._object},_getInitialValue:function(){function a(a,b){var c=a.name(),e=a.val(),f=g._index.indexOf(c);if(-1!==f&&g._index.splice(f,1),b){var h=g._index.indexOf(b);g._index.splice(h+1,0,c)}else g._index.unshift(c);d(e)||null===a.getPriority()||(e.$priority=a.getPriority()),g._updateModel(c,e)}function b(a,b){return function(c,d){b(c,d),g._broadcastEvent(a,g._makeEventSnapshot(c.name(),c.val(),d))}}function c(a,c){g._fRef.on(a,b(a,c))}function d(a){return null===a||"object"!=typeof a}function e(a){g._loaded=!0,g._broadcastEvent("loaded",a)}function f(a){if(g._bound&&null===a){var b=g._parseObject(g._parse(g._name)(g._scope));switch(typeof b){case"string":case"undefined":a="";break;case"number":a=0;break;case"boolean":a=!1}}return a}var g=this;c("child_added",a),c("child_moved",a),c("child_changed",a),c("child_removed",function(a){var b=a.name(),c=g._index.indexOf(b);g._index.splice(c,1),g._updateModel(b,null)}),g._fRef.on("value",function(a){var b=a.val();d(b)?(b=f(b),g._updatePrimitive(b)):delete g._object.$value,g._broadcastEvent("value",g._makeEventSnapshot(a.name(),b)),g._loaded||e(b)})},_updateModel:function(a,b){null==b?delete this._object[a]:this._object[a]=b,this._broadcastEvent("change",a),this._triggerModelUpdate()},_triggerModelUpdate:function(){if(!this._runningTimer){var a=this;this._runningTimer=a._timeout(function(){if(a._runningTimer=null,a._bound){var b=a._object,c=a._parse(a._name)(a._scope);angular.equals(b,c)||a._parse(a._name).assign(a._scope,angular.copy(b))}})}},_updatePrimitive:function(a){var b=this;b._timeout(function(){if(b._object.$value&&angular.equals(b._object.$value,a)||(b._object.$value=a),b._broadcastEvent("change"),b._bound){var c=b._parseObject(b._parse(b._name)(b._scope));angular.equals(c,a)||b._parse(b._name).assign(b._scope,a)}})},_broadcastEvent:function(a,b){function c(a,b){e._timeout(function(){a(b)})}var d=this._on[a]||[];"loaded"===a&&(this._on[a]=[]);var e=this;if(d.length>0)for(var f=0;f<d.length;f++)"function"==typeof d[f]&&c(d[f],b)},_sendInitEvent:function(a,b){var c=this;c._loaded&&["child_added","loaded","value"].indexOf(a)>-1&&c._timeout(function(){var d=angular.isObject(c._object)?c._parseObject(c._object):c._object;switch(a){case"loaded":b(d);break;case"value":b(c._makeEventSnapshot(c._fRef.name(),d,null));break;case"child_added":c._iterateChildren(d,function(a,d,e){b(c._makeEventSnapshot(a,d,e))})}})},_iterateChildren:function(a,b){if(this._loaded&&angular.isObject(a)){var c=null;for(var d in a)a.hasOwnProperty(d)&&(b(d,a[d],c),c=d)}},_makeEventSnapshot:function(a,b,c){return angular.isUndefined(c)&&(c=null),{snapshot:{name:a,value:b},prevChild:c}},_bind:function(a,b,c){var d=this,e=d._q.defer();d._name=b,d._bound=!0,d._scope=a;var f=d._parse(b)(a);void 0!==f&&"object"==typeof f&&d._fRef.ref().update(d._parseObject(f));var g=a.$watch(b,function(){var c=d._parseObject(d._parse(b)(a));void 0!==d._object.$value&&angular.equals(c,d._object.$value)||angular.equals(c,d._parseObject(d._object))||void 0!==c&&d._loaded&&(d._fRef.set?d._fRef.set(c):d._fRef.ref().update(c))},!0);return a.$on("$destroy",function(){g()}),d._fRef.once("value",function(f){d._timeout(function(){"object"!=typeof f.val()?(null==f.val()&&"function"==typeof c&&(a[b]=c()),e.resolve(g)):d._timeout(function(){null==f.val()&&"function"==typeof c&&(a[b]=c()),e.resolve(g)})})}),e.promise},_parseObject:function(a){function b(a){for(var c in a)a.hasOwnProperty(c)&&("$priority"==c?(a[".priority"]=a.$priority,delete a.$priority):"object"==typeof a[c]&&b(a[c]));return a}var c=b(angular.copy(a));return angular.fromJson(angular.toJson(c))}},angular.module("firebase").factory("$firebaseSimpleLogin",["$q","$timeout","$rootScope",function(a,c,d){return function(e){var f=new b(a,c,d,e);return f.construct()}}]),b=function(a,b,c,d){if(this._q=a,this._timeout=b,this._rootScope=c,this._loginDeferred=null,this._getCurrentUserDeferred=[],this._currentUserData=void 0,"string"==typeof d)throw new Error("Please provide a Firebase reference instead of a URL, eg: new Firebase(url)");this._fRef=d},b.prototype={construct:function(){var a={user:null,$login:this.login.bind(this),$logout:this.logout.bind(this),$createUser:this.createUser.bind(this),$changePassword:this.changePassword.bind(this),$removeUser:this.removeUser.bind(this),$getCurrentUser:this.getCurrentUser.bind(this),$sendPasswordResetEmail:this.sendPasswordResetEmail.bind(this)};if(this._object=a,!window.FirebaseSimpleLogin){var b=new Error("FirebaseSimpleLogin is undefined. Did you forget to include firebase-simple-login.js?");throw this._rootScope.$broadcast("$firebaseSimpleLogin:error",b),b}var c=new FirebaseSimpleLogin(this._fRef,this._onLoginEvent.bind(this));return this._authClient=c,this._object},login:function(a,b){var c=this._q.defer(),d=this;return this.getCurrentUser().then(function(){d._loginDeferred=c,d._authClient.login(a,b)}),c.promise},logout:function(){this._authClient.logout(),delete this._currentUserData},createUser:function(a,b){var c=this,d=this._q.defer();return c._authClient.createUser(a,b,function(a,b){a?(c._rootScope.$broadcast("$firebaseSimpleLogin:error",a),d.reject(a)):d.resolve(b)}),d.promise},changePassword:function(a,b,c){var d=this,e=this._q.defer();return d._authClient.changePassword(a,b,c,function(a){a?(d._rootScope.$broadcast("$firebaseSimpleLogin:error",a),e.reject(a)):e.resolve()}),e.promise},getCurrentUser:function(){var a=this,b=this._q.defer();return void 0!==a._currentUserData?b.resolve(a._currentUserData):a._getCurrentUserDeferred.push(b),b.promise},removeUser:function(a,b){var c=this,d=this._q.defer();return c._authClient.removeUser(a,b,function(a){a?(c._rootScope.$broadcast("$firebaseSimpleLogin:error",a),d.reject(a)):d.resolve()}),d.promise},sendPasswordResetEmail:function(a){var b=this,c=this._q.defer();return b._authClient.sendPasswordResetEmail(a,function(a){a?(b._rootScope.$broadcast("$firebaseSimpleLogin:error",a),c.reject(a)):c.resolve()}),c.promise},_onLoginEvent:function(a,b){if(this._currentUserData!==b||null!==a){var c=this;a?(c._loginDeferred&&(c._loginDeferred.reject(a),c._loginDeferred=null),c._rootScope.$broadcast("$firebaseSimpleLogin:error",a)):(this._currentUserData=b,c._timeout(function(){for(c._object.user=b,b?c._rootScope.$broadcast("$firebaseSimpleLogin:login",b):c._rootScope.$broadcast("$firebaseSimpleLogin:logout"),c._loginDeferred&&(c._loginDeferred.resolve(b),c._loginDeferred=null);c._getCurrentUserDeferred.length>0;){var a=c._getCurrentUserDeferred.pop();a.resolve(b)}}))}}}}();
 /*
  Leaflet, a JavaScript library for mobile-friendly interactive maps. http://leafletjs.com
@@ -253,6 +268,602 @@ o.DomUtil.addClass(t,"leaflet-vml-shape"),this.options.clickable&&o.DomUtil.addC
   http://leafletjs.com
   https://github.com/lvoogdt
 *//*global L*/(function(e,t,n){"use strict";L.AwesomeMarkers={};L.AwesomeMarkers.version="2.0.1";L.AwesomeMarkers.Icon=L.Icon.extend({options:{iconSize:[35,45],iconAnchor:[17,42],popupAnchor:[1,-32],shadowAnchor:[10,12],shadowSize:[36,16],className:"awesome-marker",prefix:"glyphicon",spinClass:"fa-spin",icon:"home",markerColor:"blue",iconColor:"white"},initialize:function(e){e=L.Util.setOptions(this,e)},createIcon:function(){var e=t.createElement("div"),n=this.options;n.icon&&(e.innerHTML=this._createInner());n.bgPos&&(e.style.backgroundPosition=-n.bgPos.x+"px "+ -n.bgPos.y+"px");this._setIconStyles(e,"icon-"+n.markerColor);return e},_createInner:function(){var e,t="",n="",r="",i=this.options;i.icon.slice(0,i.prefix.length+1)===i.prefix+"-"?e=i.icon:e=i.prefix+"-"+i.icon;i.spin&&typeof i.spinClass=="string"&&(t=i.spinClass);i.iconColor&&(i.iconColor==="white"||i.iconColor==="black"?n="icon-"+i.iconColor:r="style='color: "+i.iconColor+"' ");return"<i "+r+"class='"+i.prefix+" "+e+" "+t+" "+n+"'></i>"},_setIconStyles:function(e,t){var n=this.options,r=L.point(n[t==="shadow"?"shadowSize":"iconSize"]),i;t==="shadow"?i=L.point(n.shadowAnchor||n.iconAnchor):i=L.point(n.iconAnchor);!i&&r&&(i=r.divideBy(2,!0));e.className="awesome-marker-"+t+" "+n.className;if(i){e.style.marginLeft=-i.x+"px";e.style.marginTop=-i.y+"px"}if(r){e.style.width=r.x+"px";e.style.height=r.y+"px"}},createShadow:function(){var e=t.createElement("div");this._setIconStyles(e,"shadow");return e}});L.AwesomeMarkers.icon=function(e){return new L.AwesomeMarkers.Icon(e)}})(this,document);
+
+//
+// javascript-mobile-desktop-geolocation
+// https://github.com/estebanav/javascript-mobile-desktop-geolocation
+//
+// Copyright J. Esteban Acosta Villafañe
+// Licensed under the MIT licenses.
+//
+// Based on Stan Wiechers > geo-location-javascript v0.4.8 > http://code.google.com/p/geo-location-javascript/
+//
+// Revision: $Rev: 01 $: 
+// Author: $Author: estebanav $:
+// Date: $Date: 2012-09-07 23:03:53 -0300 (Fri, 07 Sep 2012) $:    
+
+var bb = { 
+        success: 0,
+        error: 0,
+        blackberryTimeoutId : -1
+    };
+
+function handleBlackBerryLocationTimeout()
+{
+	if(bb.blackberryTimeoutId!=-1) {
+		bb.error({ message:     "Timeout error", 
+                   code:        3
+               });
+	}
+}
+function handleBlackBerryLocation()
+{
+		clearTimeout(bb.blackberryTimeoutId);
+		bb.blackberryTimeoutId=-1;
+        if (bb.success && bb.error) {
+                if(blackberry.location.latitude==0 && blackberry.location.longitude==0) {
+                        //http://dev.w3.org/geo/api/spec-source.html#position_unavailable_error
+                        //POSITION_UNAVAILABLE (numeric value 2)
+                        bb.error({message:"Position unavailable", code:2});
+                }
+                else
+                {  
+                        var timestamp=null;
+                        //only available with 4.6 and later
+                        //http://na.blackberry.com/eng/deliverables/8861/blackberry_location_568404_11.jsp
+                        if (blackberry.location.timestamp)
+                        {
+                                timestamp = new Date( blackberry.location.timestamp );
+                        }
+                        bb.success( { timestamp:    timestamp , 
+                                      coords: { 
+                                            latitude:  blackberry.location.latitude,
+                                            longitude: blackberry.location.longitude
+                                        }
+                                    });
+                }
+                //since blackberry.location.removeLocationUpdate();
+                //is not working as described http://na.blackberry.com/eng/deliverables/8861/blackberry_location_removeLocationUpdate_568409_11.jsp
+                //the callback are set to null to indicate that the job is done
+
+                bb.success = null;
+                bb.error = null;
+        }
+}
+
+var geoPosition=function() {
+
+        var pub = {};
+        var provider=null;
+		var u="undefined";
+        var ipGeolocationSrv = 'http://freegeoip.net/json/?callback=JSONPCallback';
+
+        pub.getCurrentPosition = function(success,error,opts)
+        {
+                provider.getCurrentPosition(success, error,opts);
+        }
+
+        pub.jsonp = {
+            callbackCounter: 0,
+
+            fetch: function(url, callback) {
+                var fn = 'JSONPCallback_' + this.callbackCounter++;
+                window[fn] = this.evalJSONP(callback);
+                url = url.replace('=JSONPCallback', '=' + fn);
+
+                var scriptTag = document.createElement('SCRIPT');
+                scriptTag.src = url;
+                document.getElementsByTagName('HEAD')[0].appendChild(scriptTag);
+            },
+
+            evalJSONP: function(callback) {
+                return function(data) {
+                    callback(data);
+                }
+            }
+        };
+		        
+        pub.confirmation = function()
+        {
+            return confirm('This Webpage wants to track your physical location.\nDo you allow it?');
+        };
+
+        pub.init = function()
+        {			                        
+            try
+            {
+                var hasGeolocation = typeof(navigator.geolocation)!=u;
+                if( !hasGeolocation ){
+                    if( !pub.confirmation() ){
+                        return false;
+                    }
+                }
+
+                if ( ( typeof(geoPositionSimulator)!=u ) && (geoPositionSimulator.length > 0 ) ){
+                        provider=geoPositionSimulator;
+                } else if (typeof(bondi)!=u && typeof(bondi.geolocation)!=u  ) {
+                        provider=bondi.geolocation;
+                } else if ( hasGeolocation ) {
+                        provider=navigator.geolocation;
+                        pub.getCurrentPosition = function(success, error, opts) {
+                                function _success(p) {
+                                        //for mozilla geode,it returns the coordinates slightly differently
+                                        var params;
+                                        if(typeof(p.latitude)!=u) {
+                                                params = {
+                                                    timestamp: p.timestamp, 
+                                                    coords: {
+                                                        latitude:  p.latitude,
+                                                        longitude: p.longitude
+                                                    }
+                                                };
+                                        } else {
+                                                params = p;
+                                        }
+                                        success( params );
+                                }
+                                provider.getCurrentPosition(_success,error,opts);
+                        }
+                } else if(typeof(window.blackberry)!=u && blackberry.location.GPSSupported) {
+                        // set to autonomous mode
+						if(typeof(blackberry.location.setAidMode)==u) {
+                            return false;									
+						}
+						blackberry.location.setAidMode(2);
+                        //override default method implementation
+                        pub.getCurrentPosition = function(success,error,opts)
+                        {
+                                //passing over callbacks as parameter didn't work consistently
+                                //in the onLocationUpdate method, thats why they have to be set outside
+                                bb.success = success;
+                                bb.error = error;
+                                //function needs to be a string according to
+                                //http://www.tonybunce.com/2008/05/08/Blackberry-Browser-Amp-GPS.aspx
+								if(opts['timeout']) {
+								 	bb.blackberryTimeoutId = setTimeout("handleBlackBerryLocationTimeout()",opts['timeout']);
+								} else {
+                                    //default timeout when none is given to prevent a hanging script
+									bb.blackberryTimeoutId = setTimeout("handleBlackBerryLocationTimeout()",60000);
+								}										
+								blackberry.location.onLocationUpdate("handleBlackBerryLocation()");
+                                blackberry.location.refreshLocation();
+                        }
+                        provider = blackberry.location;				
+                
+                } else if ( typeof(Mojo) !=u && typeof(Mojo.Service.Request)!="Mojo.Service.Request") {
+                        provider = true;
+                        pub.getCurrentPosition = function(success, error, opts) {
+                            parameters = {};
+                            if( opts ) {
+                                 //http://developer.palm.com/index.php?option=com_content&view=article&id=1673#GPS-getCurrentPosition
+                                 if (opts.enableHighAccuracy && opts.enableHighAccuracy == true ){
+                                        parameters.accuracy = 1;
+                                 }
+                                 if ( opts.maximumAge ) {
+                                        parameters.maximumAge = opts.maximumAge;
+                                 }
+                                 if (opts.responseTime) {
+                                        if( opts.responseTime < 5 ) {
+                                                parameters.responseTime = 1;
+                                        } else if ( opts.responseTime < 20 ) {
+                                                parameters.responseTime = 2;
+                                        } else {
+                                                parameters.timeout = 3;
+                                        }
+                                 }
+                        }
+
+                         r = new Mojo.Service.Request( 'palm://com.palm.location' , {
+                                method:"getCurrentPosition",
+                                    parameters:parameters,
+                                    onSuccess: function( p ){
+                                        success( { timestamp: p.timestamp, 
+                                                   coords: {
+                                                        latitude:  p.latitude, 
+                                                        longitude: p.longitude,
+                                                        heading:   p.heading
+                                                    }
+                                                });
+                                    },
+                                    onFailure: function( e ){
+                                                        if (e.errorCode==1) {
+                                                            error({ code:       3,
+                                                                    message:    "Timeout"
+                                                                });
+                                                        } else if (e.errorCode==2){
+                                                            error({ code:       2,
+                                                                    message:    "Position unavailable" 
+                                                                });
+                                                        } else {
+                                                            error({ code:       0,
+                                                                    message:    "Unknown Error: webOS-code" + errorCode 
+                                                                });
+                                                        }
+                                                }
+                                    });
+                        }
+
+                }
+                else if (typeof(device)!=u && typeof(device.getServiceObject)!=u) {
+                        provider=device.getServiceObject("Service.Location", "ILocation");
+
+                        //override default method implementation
+                        pub.getCurrentPosition = function(success, error, opts){
+                                function callback(transId, eventCode, result) {
+                                    if (eventCode == 4) {
+                                        error({message:"Position unavailable", code:2});
+                                    } else {
+                                        //no timestamp of location given?
+                                        success( {  timestamp:null, 
+                                                    coords: {
+                                                            latitude:   result.ReturnValue.Latitude, 
+                                                            longitude:  result.ReturnValue.Longitude, 
+                                                            altitude:   result.ReturnValue.Altitude,
+                                                            heading:    result.ReturnValue.Heading }
+                                                });
+                                    }
+                                }
+                        //location criteria
+                        
+                        var criteria = new Object();
+                        criteria.LocationInformationClass = "BasicLocationInformation";
+                        //make the call
+                        provider.ILocation.GetLocation(criteria,callback);
+                        }
+                } else  {                            
+                        pub.getCurrentPosition = function(success, error, opts) {
+                                pub.jsonp.fetch(ipGeolocationSrv, 
+                                        function( p ){ success( { timestamp: p.timestamp, 
+                                                                   coords: { 
+                                                                        latitude:   p.latitude, 
+                                                                        longitude:  p.longitude,
+                                                                        heading:    p.heading
+                                                                    }
+                                                                });});
+                        }
+                        provider = true;
+                }
+            }
+            catch (e){ 
+				if( typeof(console) != u ) console.log(e);					
+				return false;
+			}
+            return  provider!=null;
+        }
+        return pub;
+}();
+
+/**
+ * Copyright 2010-2011 Sun Ning <classicning@gmail.com>
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+
+/**
+ * Heatmap api based on canvas
+ *
+ */
+
+var heatcanvasWorker =  new Blob(Array.prototype.map.call(document.querySelectorAll("script[type=\"text\/js-worker\"]"), function (oScript) { return oScript.textContent; }),{type: "text/javascript"});
+
+var HeatCanvas = function(canvas){
+    if (typeof(canvas) == "string") {
+        this.canvas = document.getElementById(canvas);
+    } else {
+        this.canvas = canvas;
+    }
+    if(this.canvas == null){
+        return null;
+    }
+    
+    this.worker = new Worker(window.URL.createObjectURL(heatcanvasWorker));
+    
+    this.width = this.canvas.width;
+    this.height = this.canvas.height;
+
+    this.onRenderingStart = null;
+    this.onRenderingEnd = null;
+    
+    this.data = {};
+};
+
+HeatCanvas.prototype.resize = function( w, h ) {
+  this.width = this.canvas.width = w;
+  this.height = this.canvas.height = h;
+
+  this.canvas.style.width = w + 'px';
+  this.canvas.style.height = h + 'px';
+};
+
+HeatCanvas.prototype.push = function(x, y, data){
+    // ignore all data out of extent
+    if (x < 0 || x > this.width) {
+        return ;
+    }
+    if (y < 0 || y > this.height) {
+        return;
+    }
+
+    var id = x+y*this.width;
+    if(this.data[id]){
+        this.data[id] = this.data[id] + data;           
+    } else {
+        this.data[id] = data;
+    }
+};
+
+HeatCanvas.prototype.render = function(step, degree, f_value_color){
+    step = step || 1;
+    degree = degree || HeatCanvas.LINEAR ;
+
+    var self = this;
+    this.worker.onmessage = function(e){
+        self.value = e.data.value;
+        self.data = {};
+        self._render(f_value_color);
+        if (self.onRenderingEnd){
+            self.onRenderingEnd();
+        }
+    }
+    var msg = {
+        'data': self.data,
+        'width': self.width,
+        'height': self.height,
+        'step': step,
+        'degree': degree,
+        'value': self.value
+    };
+    this.worker.postMessage(msg);
+    if (this.onRenderingStart){
+        this.onRenderingStart();
+    }
+};
+
+
+HeatCanvas.prototype._render = function(f_value_color){
+    f_value_color = f_value_color || HeatCanvas.defaultValue2Color;
+
+    var ctx = this.canvas.getContext("2d");
+    ctx.clearRect(0, 0, this.width, this.height);
+
+    defaultColor = this.bgcolor || [0, 0, 0, 255];
+    var canvasData = ctx.createImageData(this.width, this.height);
+    for (var i=0; i<canvasData.data.length; i+=4){
+        canvasData.data[i] = defaultColor[0]; // r
+        canvasData.data[i+1] = defaultColor[1];
+        canvasData.data[i+2] = defaultColor[2];
+        canvasData.data[i+3] = defaultColor[3];
+    }
+    
+    // maximum 
+    var maxValue = 0;
+    for(var id in this.value){
+        maxValue = Math.max(this.value[id], maxValue);
+    }
+    
+    for(var pos in this.value){
+        var x = Math.floor(pos%this.width);
+        var y = Math.floor(pos/this.width);
+
+        // MDC ImageData:
+        // data = [r1, g1, b1, a1, r2, g2, b2, a2 ...]
+        var pixelColorIndex = y*this.width*4+x*4;
+        
+        var color = HeatCanvas.hsla2rgba.apply(
+          null, f_value_color(this.value[pos] / maxValue));
+        canvasData.data[pixelColorIndex] = color[0]; //r
+        canvasData.data[pixelColorIndex+1] = color[1]; //g
+        canvasData.data[pixelColorIndex+2] = color[2]; //b
+        canvasData.data[pixelColorIndex+3] = color[3]; //a
+        }
+
+    ctx.putImageData(canvasData, 0, 0);
+    
+};
+
+HeatCanvas.prototype.clear = function(){
+    this.data = {};
+    this.value = {};
+	
+    this.canvas.getContext("2d").clearRect(0, 0, this.width, this.height);
+};
+
+HeatCanvas.prototype.exportImage = function() {
+    return this.canvas.toDataURL();
+};
+
+HeatCanvas.defaultValue2Color = function(value){
+    var h = (1 - value);
+    var l = value * 0.6;
+    var s = 0.8;
+    var a = 1;
+    return [h, s, l, a];
+}
+
+// function copied from:
+// http://mjijackson.com/2008/02/rgb-to-hsl-and-rgb-to-hsv-color-model-conversion-algorithms-in-javascript
+HeatCanvas.hsla2rgba = function(h, s, l, a){
+    var r, g, b;
+
+    if(s == 0){
+        r = g = b = l;
+    }else{
+        function hue2rgb(p, q, t){
+            if(t < 0) t += 1;
+            if(t > 1) t -= 1;
+            if(t < 1/6) return p + (q - p) * 6 * t;
+            if(t < 1/2) return q;
+            if(t < 2/3) return p + (q - p) * (2/3 - t) * 6;
+            return p;
+        }
+
+        var q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+        var p = 2 * l - q;
+        r = hue2rgb(p, q, h + 1/3);
+        g = hue2rgb(p, q, h);
+        b = hue2rgb(p, q, h - 1/3);
+    }
+
+    return [r * 255, g * 255, b * 255, a * 255];
+}
+
+HeatCanvas.LINEAR = 1;
+HeatCanvas.QUAD = 2;
+HeatCanvas.CUBIC = 3;
+
+HeatCanvas.getPath = function() {
+    var scriptTags = document.getElementsByTagName("script");
+    for (var i=0; i<scriptTags.length; i++) {
+        var src = scriptTags[i].src;
+        var pos = src.indexOf("heatcanvas.js");
+        if (pos > 0) {
+            return src.substring(0, pos);
+        }
+    }
+    return "";
+}
+
+
+/**
+ * Copyright 2010 Sun Ning <classicning@gmail.com>
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+
+L.TileLayer.HeatCanvas = L.Class.extend({
+
+    initialize: function(options, heatCanvasOptions){
+        this.heatCanvasOptions = heatCanvasOptions;
+        this.data= [];
+        this._onRenderingStart = null;
+        this._onRenderingEnd = null;
+    },
+
+    onRenderingStart: function(cb){
+        this._onRenderingStart = cb;
+    },
+
+    onRenderingEnd: function(cb) {
+        this._onRenderingEnd = cb;
+    },
+
+    onAdd: function(map) {
+        this.map = map;
+        this._initHeatCanvas(this.map, this.heatCanvasOptions);
+        map.on("viewreset", this._redraw, this);
+        map.on("moveend", this._redraw, this);
+        map.on("dragend", this._redraw, this);
+        map.on("zoomend", this._redraw, this);
+        this._redraw();
+    },
+
+    onRemove: function(map) {
+        map.getPanes().overlayPane.removeChild(this._div);
+        map.off("viewreset", this._redraw, this);
+        map.off("moveend", this._redraw, this);
+        map.off("dragend", this._redraw, this);
+        map.off("zoomend", this._redraw, this);
+    },
+
+    _initHeatCanvas: function(map, options){
+        options = options || {};                        
+        this._step = options.step || 1;
+        this._degree = options.degree || HeatCanvas.LINEAR;
+        this._opacity = options.opacity || 0.6;
+        this._colorscheme = options.colorscheme || null;
+
+        var container = L.DomUtil.create('div', 'leaflet-heatmap-container');
+        container.style.position = 'absolute';
+        container.style.width = this.map.getSize().x+"px";
+        container.style.height = this.map.getSize().y+"px";
+
+        var canv = document.createElement("canvas");
+        canv.style.width = this.map.getSize().x+"px";
+        canv.style.height = this.map.getSize().y+"px";
+        canv.width = parseInt(canv.style.width);
+        canv.height = parseInt(canv.style.height);
+        canv.style.opacity = this._opacity;
+        container.appendChild(canv);
+
+        this.heatmap = new HeatCanvas(canv);
+        this.heatmap.onRenderingStart = this._onRenderingStart;
+        this.heatmap.onRenderingEnd = this._onRenderingEnd;
+        this._div = container;
+        this.map.getPanes().overlayPane.appendChild(this._div);
+    },
+
+    pushData: function(lat, lon, value) {
+        this.data.push({"lon":lon, "lat":lat, "v":value});
+    },
+    
+    _resetCanvasPosition: function() {
+        var bounds = this.map.getBounds();
+        var topLeft = this.map.latLngToLayerPoint(bounds.getNorthWest());
+        //topLeft = this.map.layerPointToContainerPoint(topLeft);
+
+        L.DomUtil.setPosition(this._div, topLeft);
+    },
+
+    _redraw: function() {
+        this._resetCanvasPosition();
+        this.heatmap.clear();
+        if (this.data.length > 0) {
+            for (var i=0, l=this.data.length; i<l; i++) {
+                var lonlat = new L.LatLng(this.data[i].lat, this.data[i].lon);
+                var localXY = this.map.latLngToLayerPoint(lonlat);
+                localXY = this.map.layerPointToContainerPoint(localXY);
+                this.heatmap.push(
+                        Math.floor(localXY.x), 
+                        Math.floor(localXY.y), 
+                        this.data[i].v);
+            }
+
+            this.heatmap.render(this._step, this._degree, this._colorscheme);
+        }
+        return this;
+    },
+
+    clear: function(){
+        this.heatmap.clear();
+    },
+
+    redraw: function(){
+        this._redraw();
+    }
+
+});
 
 //! moment.js
 //! version : 2.5.1
@@ -2395,274 +3006,7 @@ if (typeof define !== 'undefined' && define.amd) {
   }
 }).call(this);
 
-//
-// javascript-mobile-desktop-geolocation
-// https://github.com/estebanav/javascript-mobile-desktop-geolocation
-//
-// Copyright J. Esteban Acosta Villafañe
-// Licensed under the MIT licenses.
-//
-// Based on Stan Wiechers > geo-location-javascript v0.4.8 > http://code.google.com/p/geo-location-javascript/
-//
-// Revision: $Rev: 01 $: 
-// Author: $Author: estebanav $:
-// Date: $Date: 2012-09-07 23:03:53 -0300 (Fri, 07 Sep 2012) $:    
-
-var bb = { 
-        success: 0,
-        error: 0,
-        blackberryTimeoutId : -1
-    };
-
-function handleBlackBerryLocationTimeout()
-{
-	if(bb.blackberryTimeoutId!=-1) {
-		bb.error({ message:     "Timeout error", 
-                   code:        3
-               });
-	}
-}
-function handleBlackBerryLocation()
-{
-		clearTimeout(bb.blackberryTimeoutId);
-		bb.blackberryTimeoutId=-1;
-        if (bb.success && bb.error) {
-                if(blackberry.location.latitude==0 && blackberry.location.longitude==0) {
-                        //http://dev.w3.org/geo/api/spec-source.html#position_unavailable_error
-                        //POSITION_UNAVAILABLE (numeric value 2)
-                        bb.error({message:"Position unavailable", code:2});
-                }
-                else
-                {  
-                        var timestamp=null;
-                        //only available with 4.6 and later
-                        //http://na.blackberry.com/eng/deliverables/8861/blackberry_location_568404_11.jsp
-                        if (blackberry.location.timestamp)
-                        {
-                                timestamp = new Date( blackberry.location.timestamp );
-                        }
-                        bb.success( { timestamp:    timestamp , 
-                                      coords: { 
-                                            latitude:  blackberry.location.latitude,
-                                            longitude: blackberry.location.longitude
-                                        }
-                                    });
-                }
-                //since blackberry.location.removeLocationUpdate();
-                //is not working as described http://na.blackberry.com/eng/deliverables/8861/blackberry_location_removeLocationUpdate_568409_11.jsp
-                //the callback are set to null to indicate that the job is done
-
-                bb.success = null;
-                bb.error = null;
-        }
-}
-
-var geoPosition=function() {
-
-        var pub = {};
-        var provider=null;
-		var u="undefined";
-        var ipGeolocationSrv = 'http://freegeoip.net/json/?callback=JSONPCallback';
-
-        pub.getCurrentPosition = function(success,error,opts)
-        {
-                provider.getCurrentPosition(success, error,opts);
-        }
-
-        pub.jsonp = {
-            callbackCounter: 0,
-
-            fetch: function(url, callback) {
-                var fn = 'JSONPCallback_' + this.callbackCounter++;
-                window[fn] = this.evalJSONP(callback);
-                url = url.replace('=JSONPCallback', '=' + fn);
-
-                var scriptTag = document.createElement('SCRIPT');
-                scriptTag.src = url;
-                document.getElementsByTagName('HEAD')[0].appendChild(scriptTag);
-            },
-
-            evalJSONP: function(callback) {
-                return function(data) {
-                    callback(data);
-                }
-            }
-        };
-		        
-        pub.confirmation = function()
-        {
-            return confirm('This Webpage wants to track your physical location.\nDo you allow it?');
-        };
-
-        pub.init = function()
-        {			                        
-            try
-            {
-                var hasGeolocation = typeof(navigator.geolocation)!=u;
-                if( !hasGeolocation ){
-                    if( !pub.confirmation() ){
-                        return false;
-                    }
-                }
-
-                if ( ( typeof(geoPositionSimulator)!=u ) && (geoPositionSimulator.length > 0 ) ){
-                        provider=geoPositionSimulator;
-                } else if (typeof(bondi)!=u && typeof(bondi.geolocation)!=u  ) {
-                        provider=bondi.geolocation;
-                } else if ( hasGeolocation ) {
-                        provider=navigator.geolocation;
-                        pub.getCurrentPosition = function(success, error, opts) {
-                                function _success(p) {
-                                        //for mozilla geode,it returns the coordinates slightly differently
-                                        var params;
-                                        if(typeof(p.latitude)!=u) {
-                                                params = {
-                                                    timestamp: p.timestamp, 
-                                                    coords: {
-                                                        latitude:  p.latitude,
-                                                        longitude: p.longitude
-                                                    }
-                                                };
-                                        } else {
-                                                params = p;
-                                        }
-                                        success( params );
-                                }
-                                provider.getCurrentPosition(_success,error,opts);
-                        }
-                } else if(typeof(window.blackberry)!=u && blackberry.location.GPSSupported) {
-                        // set to autonomous mode
-						if(typeof(blackberry.location.setAidMode)==u) {
-                            return false;									
-						}
-						blackberry.location.setAidMode(2);
-                        //override default method implementation
-                        pub.getCurrentPosition = function(success,error,opts)
-                        {
-                                //passing over callbacks as parameter didn't work consistently
-                                //in the onLocationUpdate method, thats why they have to be set outside
-                                bb.success = success;
-                                bb.error = error;
-                                //function needs to be a string according to
-                                //http://www.tonybunce.com/2008/05/08/Blackberry-Browser-Amp-GPS.aspx
-								if(opts['timeout']) {
-								 	bb.blackberryTimeoutId = setTimeout("handleBlackBerryLocationTimeout()",opts['timeout']);
-								} else {
-                                    //default timeout when none is given to prevent a hanging script
-									bb.blackberryTimeoutId = setTimeout("handleBlackBerryLocationTimeout()",60000);
-								}										
-								blackberry.location.onLocationUpdate("handleBlackBerryLocation()");
-                                blackberry.location.refreshLocation();
-                        }
-                        provider = blackberry.location;				
-                
-                } else if ( typeof(Mojo) !=u && typeof(Mojo.Service.Request)!="Mojo.Service.Request") {
-                        provider = true;
-                        pub.getCurrentPosition = function(success, error, opts) {
-                            parameters = {};
-                            if( opts ) {
-                                 //http://developer.palm.com/index.php?option=com_content&view=article&id=1673#GPS-getCurrentPosition
-                                 if (opts.enableHighAccuracy && opts.enableHighAccuracy == true ){
-                                        parameters.accuracy = 1;
-                                 }
-                                 if ( opts.maximumAge ) {
-                                        parameters.maximumAge = opts.maximumAge;
-                                 }
-                                 if (opts.responseTime) {
-                                        if( opts.responseTime < 5 ) {
-                                                parameters.responseTime = 1;
-                                        } else if ( opts.responseTime < 20 ) {
-                                                parameters.responseTime = 2;
-                                        } else {
-                                                parameters.timeout = 3;
-                                        }
-                                 }
-                        }
-
-                         r = new Mojo.Service.Request( 'palm://com.palm.location' , {
-                                method:"getCurrentPosition",
-                                    parameters:parameters,
-                                    onSuccess: function( p ){
-                                        success( { timestamp: p.timestamp, 
-                                                   coords: {
-                                                        latitude:  p.latitude, 
-                                                        longitude: p.longitude,
-                                                        heading:   p.heading
-                                                    }
-                                                });
-                                    },
-                                    onFailure: function( e ){
-                                                        if (e.errorCode==1) {
-                                                            error({ code:       3,
-                                                                    message:    "Timeout"
-                                                                });
-                                                        } else if (e.errorCode==2){
-                                                            error({ code:       2,
-                                                                    message:    "Position unavailable" 
-                                                                });
-                                                        } else {
-                                                            error({ code:       0,
-                                                                    message:    "Unknown Error: webOS-code" + errorCode 
-                                                                });
-                                                        }
-                                                }
-                                    });
-                        }
-
-                }
-                else if (typeof(device)!=u && typeof(device.getServiceObject)!=u) {
-                        provider=device.getServiceObject("Service.Location", "ILocation");
-
-                        //override default method implementation
-                        pub.getCurrentPosition = function(success, error, opts){
-                                function callback(transId, eventCode, result) {
-                                    if (eventCode == 4) {
-                                        error({message:"Position unavailable", code:2});
-                                    } else {
-                                        //no timestamp of location given?
-                                        success( {  timestamp:null, 
-                                                    coords: {
-                                                            latitude:   result.ReturnValue.Latitude, 
-                                                            longitude:  result.ReturnValue.Longitude, 
-                                                            altitude:   result.ReturnValue.Altitude,
-                                                            heading:    result.ReturnValue.Heading }
-                                                });
-                                    }
-                                }
-                        //location criteria
-                        
-                        var criteria = new Object();
-                        criteria.LocationInformationClass = "BasicLocationInformation";
-                        //make the call
-                        provider.ILocation.GetLocation(criteria,callback);
-                        }
-                } else  {                            
-                        pub.getCurrentPosition = function(success, error, opts) {
-                                pub.jsonp.fetch(ipGeolocationSrv, 
-                                        function( p ){ success( { timestamp: p.timestamp, 
-                                                                   coords: { 
-                                                                        latitude:   p.latitude, 
-                                                                        longitude:  p.longitude,
-                                                                        heading:    p.heading
-                                                                    }
-                                                                });});
-                        }
-                        provider = true;
-                }
-            }
-            catch (e){ 
-				if( typeof(console) != u ) console.log(e);					
-				return false;
-			}
-            return  provider!=null;
-        }
-        return pub;
-}();
-var heatcanvasWoker =  new Blob(Array.prototype.map.call(document.querySelectorAll("script[type=\"text\/js-worker\"]"), function (oScript) { return oScript.textContent; }),{type: "text/javascript"});
-
-var HeatCanvas=function(a){if(typeof(a)=="string"){this.canvas=document.getElementById(a)}else{this.canvas=a}if(this.canvas==null){return null}this.worker=new Worker(window.URL.createObjectURL(heatcanvasWoker));this.width=this.canvas.width;this.height=this.canvas.height;this.onRenderingStart=null;this.onRenderingEnd=null;this.data={}};HeatCanvas.prototype.resize=function(a,b){this.width=this.canvas.width=a;this.height=this.canvas.height=b;this.canvas.style.width=a+"px";this.canvas.style.height=b+"px"};HeatCanvas.prototype.push=function(a,d,b){if(a<0||a>this.width){return}if(d<0||d>this.height){return}var c=a+d*this.width;if(this.data[c]){this.data[c]=this.data[c]+b}else{this.data[c]=b}};HeatCanvas.prototype.render=function(b,c,e){b=b||1;c=c||HeatCanvas.LINEAR;var a=this;this.worker.onmessage=function(f){a.value=f.data.value;a.data={};a._render(e);if(a.onRenderingEnd){a.onRenderingEnd()}};var d={data:a.data,width:a.width,height:a.height,step:b,degree:c,value:a.value};this.worker.postMessage(d);if(this.onRenderingStart){this.onRenderingStart()}};HeatCanvas.prototype._render=function(b){b=b||HeatCanvas.defaultValue2Color;var l=this.canvas.getContext("2d");l.clearRect(0,0,this.width,this.height);defaultColor=this.bgcolor||[0,0,0,255];var d=l.createImageData(this.width,this.height);for(var e=0;e<d.data.length;e+=4){d.data[e]=defaultColor[0];d.data[e+1]=defaultColor[1];d.data[e+2]=defaultColor[2];d.data[e+3]=defaultColor[3]}var f=0;for(var a in this.value){f=Math.max(this.value[a],f)}for(var j in this.value){var k=Math.floor(j%this.width);var h=Math.floor(j/this.width);var g=h*this.width*4+k*4;var c=HeatCanvas.hsla2rgba.apply(null,b(this.value[j]/f));d.data[g]=c[0];d.data[g+1]=c[1];d.data[g+2]=c[2];d.data[g+3]=c[3]}l.putImageData(d,0,0)};HeatCanvas.prototype.clear=function(){this.data={};this.value={};this.canvas.getContext("2d").clearRect(0,0,this.width,this.height)};HeatCanvas.prototype.exportImage=function(){return this.canvas.toDataURL()};HeatCanvas.defaultValue2Color=function(f){var e=(1-f);var c=f*0.6;var d=0.8;var b=1;return[e,d,c,b]};HeatCanvas.hsla2rgba=function(j,o,i,n){var c,k,m;if(o==0){c=k=m=i}else{function f(g,b,a){if(a<0){a+=1}if(a>1){a-=1}if(a<1/6){return g+(b-g)*6*a}if(a<1/2){return b}if(a<2/3){return g+(b-g)*(2/3-a)*6}return g}var d=i<0.5?i*(1+o):i+o-i*o;var e=2*i-d;c=f(e,d,j+1/3);k=f(e,d,j);m=f(e,d,j-1/3)}return[c*255,k*255,m*255,n*255]};HeatCanvas.LINEAR=1;HeatCanvas.QUAD=2;HeatCanvas.CUBIC=3;HeatCanvas.getPath=function(){var c=document.getElementsByTagName("script");for(var b=0;b<c.length;b++){var d=c[b].src;var a=d.match(/heatcanvas(-[a-z0-9]{32})?\.js/);var e=a?a.index:0;if(e>0){return d.substring(0,e)}}return""};L.TileLayer.HeatCanvas=L.Class.extend({initialize:function(a,b){this.heatCanvasOptions=b;this.data=[];this._onRenderingStart=null;this._onRenderingEnd=null},onRenderingStart:function(a){this._onRenderingStart=a},onRenderingEnd:function(a){this._onRenderingEnd=a},onAdd:function(a){this.map=a;this._initHeatCanvas(this.map,this.heatCanvasOptions);a.on("moveend",this._redraw,this);this._redraw()},onRemove:function(a){a.getPanes().overlayPane.removeChild(this._div);a.off("moveend",this._redraw,this)},_initHeatCanvas:function(c,b){b=b||{};this._step=b.step||1;this._degree=b.degree||HeatCanvas.LINEAR;this._opacity=b.opacity||0.6;this._colorscheme=b.colorscheme||null;var a=L.DomUtil.create("div","leaflet-heatmap-container");a.style.position="absolute";a.style.width=this.map.getSize().x+"px";a.style.height=this.map.getSize().y+"px";var d=document.createElement("canvas");d.width=this.map.getSize().x;d.height=this.map.getSize().y;d.style.width=d.width+"px";d.style.height=d.height+"px";d.style.opacity=this._opacity;a.appendChild(d);this.heatmap=new HeatCanvas(d);this.heatmap.onRenderingStart=this._onRenderingStart;this.heatmap.onRenderingEnd=this._onRenderingEnd;this._div=a;this.map.getPanes().overlayPane.appendChild(this._div)},pushData:function(b,c,a){this.data.push({lat:b,lon:c,v:a})},_resetCanvasPosition:function(){var b=this.map.getBounds();var a=this.map.latLngToLayerPoint(b.getNorthWest());L.DomUtil.setPosition(this._div,a)},_redraw:function(){this._resetCanvasPosition();this.heatmap.clear();if(this.data.length>0){for(var c=0,b=this.data.length;c<b;c++){var d=new L.LatLng(this.data[c].lat,this.data[c].lon);var a=this.map.latLngToLayerPoint(d);a=this.map.layerPointToContainerPoint(a);this.heatmap.push(Math.floor(a.x),Math.floor(a.y),this.data[c].v)}this.heatmap.render(this._step,this._degree,this._colorscheme)}return this},clear:function(){this.heatmap.clear();this.data=[]},redraw:function(){this._redraw()}});L.TileLayer.heatcanvas=function(a){return new L.TileLayer.HeatCanvas(a)};
-
-var safariFeed = angular.module('safariFeed',['firebase', 'ngRoute', 'ngAnimate', 'safariFeedControllers', 'safariFeedServices']);
+var safariFeed = angular.module('safariFeed',['firebase', 'ngRoute', 'ngAnimate', 'ngSanitize', 'safariFeedControllers', 'safariFeedServices']);
 
 safariFeed.config(['$routeProvider', function($routeProvider){
 	$routeProvider.
@@ -2687,13 +3031,13 @@ safariFeed.config(['$routeProvider', function($routeProvider){
 			redirectTo: '/'
 		});
 }]);
-var firebasePath = 'https://safarifeed.firebaseio.com';
-//var firebasePath = 'https://safarifeedtest.firebaseio.com';
+//var firebasePath = 'https://safarifeed.firebaseio.com';
+var firebasePath = 'https://safarifeedtest.firebaseio.com';
 
 var safariFeedControllers = angular.module('safariFeedControllers', []);
  
-safariFeedControllers.controller('MapCtrl', ['$scope', '$firebase', 'mapService',
-  function ($scope, $firebase, mapService) {
+safariFeedControllers.controller('MapCtrl', ['$scope', '$firebase', '$sanitize', 'mapService',
+  function ($scope, $firebase, $sanitize, mapService) {
 
   	$scope.isCommenting = false;
 	$scope.isThinking = false;
@@ -2759,7 +3103,7 @@ safariFeedControllers.controller('MapCtrl', ['$scope', '$firebase', 'mapService'
 			if (mapService.testBounds($scope.loc, $scope.zoo.bounds)) {
 				$scope.updates
 					.$add({
-						comment: $scope.comment,
+						comment: $sanitize($scope.comment),
 						sentiment: sentiment,
 						loc: $scope.loc,
 						time: Date.now()
@@ -2790,8 +3134,8 @@ safariFeedControllers.controller('MapCtrl', ['$scope', '$firebase', 'mapService'
 	
   }]);
 
-safariFeedControllers.controller('ListCtrl', ['$scope', '$firebase',
-	function ($scope, $firebase) {
+safariFeedControllers.controller('ListCtrl', ['$scope', '$firebase', '$sanitize',
+	function ($scope, $firebase, $sanitize) {
 		$scope.updates = $firebase(new Firebase(firebasePath + '/zoos/0/updates'));
 
 		$scope.formatTime = function(dbTime) {
@@ -2799,8 +3143,8 @@ safariFeedControllers.controller('ListCtrl', ['$scope', '$firebase',
 		}
 }]);
 
-safariFeedControllers.controller('DetailCtrl', ['$scope', '$firebase', '$routeParams', 'mapService',
-	function ($scope, $firebase, $routeParams, mapService) {
+safariFeedControllers.controller('DetailCtrl', ['$scope', '$firebase', '$routeParams', '$sanitize','mapService',
+	function ($scope, $firebase, $routeParams, $sanitize, mapService) {
 
 		mapService.loadMap('detail-map');
 

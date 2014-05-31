@@ -6,7 +6,7 @@
           <i class="icon-{{ update.sentiment }}"></i>
         </div>
         <div class="update-info">
-          <p>{{ update.comment}}</p>
+          <p ng-bind-html="update.comment"></p>
           <p class="update-time u-text-milli" ng-bind="formatTime(update.time)"></p>
           <a class="update-permalink" href="#update/{{ update.$id }}"><i class="icon-link"></i></a>
         </div>
