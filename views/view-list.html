@@ -1,0 +1,16 @@
+<section class="fill-section fill-section--list u-dark-border-top">
+	<div class="u-center-wrap u-center-wrap--no-pad">
+    <ul class="update-list">
+      <li ng-repeat="update in updates | orderByPriority | reverse">
+        <div class="update-sentiment update-sentiment--{{ update.sentiment }}">
+          <i class="icon-{{ update.sentiment }}"></i>
+        </div>
+        <div class="update-info">
+          <p ng-bind-html="update.comment"></p>
+          <p class="update-time u-text-milli" ng-bind="formatTime(update.time)"></p>
+          <a class="update-permalink" href="#update/{{ update.$id }}"><i class="icon-link"></i></a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
