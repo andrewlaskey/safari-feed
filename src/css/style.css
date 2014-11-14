@@ -21,10 +21,10 @@
   -moz-osx-font-smoothing: grayscale; }
 
 .icon-location:before, .glyphicon-location:before {
-  content: "\e606"; }
+  content: "\e600"; }
 
 .icon-map:before, .glyphicon-map:before {
-  content: "\e607"; }
+  content: "\e601"; }
 
 .icon-bubble2:before, .glyphicon-bubble2:before {
   content: "\e605"; }
@@ -33,7 +33,7 @@
   content: "\e602"; }
 
 .icon-bubbles:before .glyphicon-bubbles:before {
-  content: "\e608"; }
+  content: "\e603"; }
 
 .icon-spinner:before {
   content: "\e604"; }
@@ -42,19 +42,19 @@
   content: "\e603"; }
 
 .icon-earth:before {
-  content: "\e609"; }
+  content: "\e606"; }
 
 .icon-link:before {
-  content: "\e60a"; }
+  content: "\e607"; }
 
 .icon-list:before {
-  content: "\e60b"; }
+  content: "\e605"; }
 
 .icon-smiley:before, .glyphicon-smiley:before, .icon-pos:before {
-  content: "\e601"; }
+  content: "\e608"; }
 
 .icon-sad:before, .glyphicon-sad:before, .icon-neg:before {
-  content: "\e600"; }
+  content: "\e609"; }
 
 * {
   -webkit-box-sizing: border-box;
@@ -334,12 +334,17 @@ keyframes slide-from-left from {
 .site-header-name {
   margin: 0;
   float: left;
-  color: #fff;
-  font-family: 'Pacifico', cursive; }
-  @media screen and (max-width: 42em) {
-    .site-header-name {
-      font-size: 1.5em;
-      line-height: 3rem; } }
+  height: 3rem; }
+  .site-header-name h1 {
+    position: absolute;
+    top: -9999px;
+    left: -9999px; }
+
+.site-header-svg {
+  margin-top: 0.5em;
+  width: 140px;
+  height: 32px;
+  fill: #fff; }
 
 .site-header-button {
   float: right;
